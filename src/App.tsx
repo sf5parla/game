@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Menu, Users, Gamepad2, Download, Gift, Play, Box, MessageSquare, ArrowUp, X, CuboidIcon as AndroidIcon, Smartphone } from 'lucide-react';
+import { Search, Menu, Users, Gamepad2, Download, Gift, Play, Box, MessageSquare, ArrowUp, X } from 'lucide-react';
 
 interface Game {
   name: string;
@@ -126,6 +126,19 @@ const gamesData: Game[] = [
   }
 ].sort((a, b) => a.name.localeCompare(b.name));
 
+// Professional platform icons
+const AndroidIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.523 15.3414c-.5665 0-1.0253-.4588-1.0253-1.0253s.4588-1.0253 1.0253-1.0253 1.0253.4588 1.0253 1.0253-.4588 1.0253-1.0253 1.0253zm-11.046 0c-.5665 0-1.0253-.4588-1.0253-1.0253s.4588-1.0253 1.0253-1.0253 1.0253.4588 1.0253 1.0253-.4588 1.0253-1.0253 1.0253zm11.405-6.539h-11.83l.538-1.273c.027-.065.091-.1.16-.1h10.434c.069 0 .133.035.16.1l.538 1.273zm-5.703-2.538c.414 0 .75-.336.75-.75s-.336-.75-.75-.75-.75.336-.75.75.336.75.75.75zm0-1.5c.414 0 .75-.336.75-.75s-.336-.75-.75-.75-.75.336-.75.75.336.75.75.75z"/>
+  </svg>
+);
+
+const AppleIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+  </svg>
+);
+
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedGame, setSelectedGame] = useState<Game | null>(null);
@@ -175,11 +188,12 @@ function App() {
   };
 
   const handleDownload = () => {
-    showToast('Redirecting to secure download...', 'success');
-    // Simulate download process
-    setTimeout(() => {
-      showToast('Complete the verification to unlock your download!', 'info');
-    }, 1500);
+    // Use AdBlueMedia content locker
+    if (typeof (window as any)._gD === 'function') {
+      (window as any)._gD();
+    } else {
+      showToast('Content locker loading...', 'info');
+    }
   };
 
   return (
@@ -188,11 +202,11 @@ function App() {
     }}>
       <div className="bg-slate-900 bg-opacity-96 min-h-screen">
         {/* Navigation */}
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-800 shadow-lg">
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-slate-800 to-slate-700 shadow-xl border-b border-slate-600">
           <div className="flex justify-between items-center p-4">
             <button 
               onClick={() => showToast('Navigation menu under development!', 'info')}
-              className="text-white hover:text-yellow-400 transition-colors"
+              className="text-white hover:text-amber-400 transition-colors duration-200"
             >
               <Menu size={28} />
             </button>
@@ -203,7 +217,7 @@ function App() {
             />
             <button 
               onClick={() => showToast('Community features coming soon!', 'info')}
-              className="text-white hover:text-yellow-400 transition-colors"
+              className="text-white hover:text-amber-400 transition-colors duration-200"
             >
               <Users size={28} />
             </button>
@@ -219,13 +233,13 @@ function App() {
               placeholder="Search for your favorite MOD game..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full bg-slate-700 border border-slate-600 rounded-full py-3 pl-12 pr-4 text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-25 outline-none transition-all"
+              className="w-full bg-slate-700 border border-slate-600 rounded-full py-3 pl-12 pr-4 text-white focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500 focus:ring-opacity-25 outline-none transition-all duration-200"
             />
           </div>
 
           {/* Title */}
           <div className="flex items-center mb-6">
-            <div className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg shadow-yellow-400/40">
+            <div className="w-10 h-10 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg shadow-amber-400/40">
               <Gamepad2 className="text-slate-800" size={24} />
             </div>
             <h1 className="text-white text-2xl font-bold ml-4">Top MOD Games</h1>
@@ -242,7 +256,7 @@ function App() {
                 <div
                   key={index}
                   onClick={() => openGameDetails(game)}
-                  className="bg-slate-700 rounded-2xl p-5 text-center shadow-lg hover:shadow-xl hover:transform hover:-translate-y-2 hover:scale-105 transition-all duration-300 cursor-pointer group"
+                  className="bg-gradient-to-br from-slate-700 to-slate-800 rounded-2xl p-5 text-center shadow-lg hover:shadow-xl hover:transform hover:-translate-y-2 hover:scale-105 transition-all duration-300 cursor-pointer group border border-slate-600"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="relative mb-4">
@@ -255,19 +269,19 @@ function App() {
                         target.src = 'https://placehold.co/130x130/273D52/ffffff?text=Game+Icon';
                       }}
                     />
-                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-slate-800 font-bold rounded-2xl px-3 py-1 text-sm border-4 border-slate-700 shadow-md">
+                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-amber-400 to-orange-500 text-slate-800 font-bold rounded-2xl px-3 py-1 text-sm border-4 border-slate-700 shadow-md">
                       MOD
                     </div>
                   </div>
-                  <h3 className="text-white font-bold text-lg mb-2 truncate group-hover:text-yellow-400 transition-colors">
+                  <h3 className="text-white font-bold text-lg mb-2 truncate group-hover:text-amber-400 transition-colors">
                     {game.name}
                   </h3>
-                  <div className="flex items-center justify-center text-sm text-blue-300 space-x-2">
+                  <div className="flex items-center justify-center text-sm text-emerald-300 space-x-2">
                     <div className="flex items-center space-x-1">
-                      <Smartphone size={16} />
-                      <AndroidIcon size={16} />
+                      <AndroidIcon />
+                      <AppleIcon />
                     </div>
-                    <div className="w-0.5 h-4 bg-blue-500 rounded"></div>
+                    <div className="w-0.5 h-4 bg-emerald-500 rounded"></div>
                     <div className="flex items-center space-x-1">
                       <Download size={16} />
                       <span>{game.downloads}+</span>
@@ -279,8 +293,8 @@ function App() {
           </div>
 
           {/* How It Works */}
-          <section className="bg-slate-800 rounded-2xl p-8 shadow-xl mb-12">
-            <h2 className="text-yellow-400 text-3xl font-bold text-center mb-8">How It Works</h2>
+          <section className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-8 shadow-xl mb-12 border border-slate-600">
+            <h2 className="text-amber-400 text-3xl font-bold text-center mb-8">How It Works</h2>
             <div className="grid md:grid-cols-3 gap-8">
               {[
                 {
@@ -300,7 +314,7 @@ function App() {
                 }
               ].map((step, index) => (
                 <div key={index} className="text-center">
-                  <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-blue-500/40">
+                  <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-emerald-500/40">
                     <div className="text-white">{step.icon}</div>
                   </div>
                   <h3 className="text-white text-xl font-semibold mb-2">{step.title}</h3>
@@ -314,7 +328,7 @@ function App() {
         {/* Game Details Modal */}
         {selectedGame && (
           <div className="fixed inset-0 bg-black bg-opacity-85 flex items-center justify-center p-4 z-50 animate-in fade-in duration-300">
-            <div className="bg-slate-800 rounded-3xl p-8 max-w-lg w-full text-center text-white relative animate-in slide-in-from-bottom-4 duration-300">
+            <div className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-3xl p-8 max-w-lg w-full text-center text-white relative animate-in slide-in-from-bottom-4 duration-300 border border-slate-600">
               <button
                 onClick={closeGameDetails}
                 className="absolute top-5 right-5 text-white hover:text-red-400 hover:rotate-90 transition-all duration-200"
@@ -328,7 +342,7 @@ function App() {
                 className="w-44 h-44 mx-auto -mt-16 rounded-3xl border-8 border-slate-800 shadow-xl object-cover"
               />
               
-              <h2 className="text-yellow-400 text-3xl font-bold mt-4 mb-4">{selectedGame.name}</h2>
+              <h2 className="text-amber-400 text-3xl font-bold mt-4 mb-4">{selectedGame.name}</h2>
               
               <div className="text-gray-300 mb-6 leading-relaxed" 
                    dangerouslySetInnerHTML={{ 
@@ -338,22 +352,22 @@ function App() {
 
               <div className="grid grid-cols-3 gap-4 mb-6 text-sm">
                 <div className="flex flex-col items-center">
-                  <Box className="text-blue-400 mb-2" size={24} />
+                  <Box className="text-emerald-400 mb-2" size={24} />
                   <span className="text-gray-300">{selectedGame.size}</span>
                 </div>
                 <div className="flex flex-col items-center">
-                  <Download className="text-blue-400 mb-2" size={24} />
+                  <Download className="text-emerald-400 mb-2" size={24} />
                   <span className="text-gray-300">{selectedGame.downloads} Downloads</span>
                 </div>
                 <div className="flex flex-col items-center">
-                  <MessageSquare className="text-blue-400 mb-2" size={24} />
+                  <MessageSquare className="text-emerald-400 mb-2" size={24} />
                   <span className="text-gray-300">{selectedGame.reviews} Reviews</span>
                 </div>
               </div>
 
               <button
                 onClick={handleDownload}
-                className="bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold py-3 px-12 rounded-full shadow-lg shadow-blue-500/40 hover:shadow-blue-500/60 hover:-translate-y-1 transition-all duration-200 flex items-center justify-center mx-auto space-x-2"
+                className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold py-3 px-12 rounded-full shadow-lg shadow-emerald-500/40 hover:shadow-emerald-500/60 hover:-translate-y-1 transition-all duration-200 flex items-center justify-center mx-auto space-x-2"
               >
                 <Download size={20} />
                 <span>Download MOD</span>
@@ -366,7 +380,7 @@ function App() {
         {showScrollTop && (
           <button
             onClick={scrollToTop}
-            className="fixed bottom-8 right-8 bg-blue-500 bg-opacity-70 text-white p-3 rounded-full shadow-lg hover:bg-blue-600 hover:-translate-y-1 transition-all duration-200 z-40"
+            className="fixed bottom-8 right-8 bg-gradient-to-r from-emerald-500 to-teal-600 bg-opacity-90 text-white p-3 rounded-full shadow-lg hover:shadow-emerald-500/40 hover:-translate-y-1 transition-all duration-200 z-40"
           >
             <ArrowUp size={24} />
           </button>
@@ -378,9 +392,9 @@ function App() {
             <div
               key={toast.id}
               className={`px-6 py-3 rounded-lg shadow-lg text-white text-center min-w-64 animate-in slide-in-from-bottom-2 ${
-                toast.type === 'success' ? 'bg-green-600' :
-                toast.type === 'error' ? 'bg-red-600' :
-                'bg-blue-600'
+                toast.type === 'success' ? 'bg-gradient-to-r from-green-600 to-emerald-600' :
+                toast.type === 'error' ? 'bg-gradient-to-r from-red-600 to-rose-600' :
+                'bg-gradient-to-r from-blue-600 to-indigo-600'
               }`}
             >
               {toast.message}
@@ -389,14 +403,14 @@ function App() {
         </div>
 
         {/* Footer */}
-        <footer className="bg-slate-800 text-gray-300 py-6 px-4 text-center mt-12 shadow-lg">
+        <footer className="bg-gradient-to-r from-slate-800 to-slate-700 text-gray-300 py-6 px-4 text-center mt-12 shadow-lg border-t border-slate-600">
           <p className="mb-2">© 2024 Free MOD Games. All rights reserved.</p>
           <div className="flex justify-center space-x-4 text-sm">
-            <a href="#" className="text-blue-400 hover:text-yellow-400">Privacy Policy</a>
+            <a href="#" className="text-emerald-400 hover:text-amber-400 transition-colors">Privacy Policy</a>
             <span>|</span>
-            <a href="#" className="text-blue-400 hover:text-yellow-400">Terms of Service</a>
+            <a href="#" className="text-emerald-400 hover:text-amber-400 transition-colors">Terms of Service</a>
             <span>|</span>
-            <a href="#" className="text-blue-400 hover:text-yellow-400">Contact Us</a>
+            <a href="#" className="text-emerald-400 hover:text-amber-400 transition-colors">Contact Us</a>
           </div>
         </footer>
       </div>
