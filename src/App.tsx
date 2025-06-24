@@ -129,7 +129,7 @@ const gamesData: Game[] = [
 // Professional platform icons
 const AndroidIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M17.523 15.3414c-.5665 0-1.0253-.4588-1.0253-1.0253s.4588-1.0253 1.0253-1.0253 1.0253.4588 1.0253 1.0253-.4588 1.0253-1.0253 1.0253zm-11.046 0c-.5665 0-1.0253-.4588-1.0253-1.0253s.4588-1.0253 1.0253-1.0253 1.0253.4588 1.0253 1.0253-.4588 1.0253-1.0253 1.0253zm11.405-6.539h-11.83l.538-1.273c.027-.065.091-.1.16-.1h10.434c.069 0 .133.035.16.1l.538 1.273zm-5.703-2.538c.414 0 .75-.336.75-.75s-.336-.75-.75-.75-.75.336-.75.75.336.75.75.75zm0-1.5c.414 0 .75-.336.75-.75s-.336-.75-.75-.75-.75.336-.75.75.336.75.75.75z"/>
+    <path d="M6.78 1.39c-.24-.24-.24-.62 0-.86.24-.24.62-.24.86 0l1.27 1.27c.4-.2.84-.3 1.29-.3s.89.1 1.29.3L12.76.53c.24-.24.62-.24.86 0 .24.24.24.62 0 .86L12.35 2.66c1.92.8 3.28 2.65 3.28 4.84v.5H8.37v-.5c0-2.19 1.36-4.04 3.28-4.84L10.38 1.39zM9.5 5.5c-.28 0-.5-.22-.5-.5s.22-.5.5-.5.5.22.5.5-.22.5-.5.5zm5 0c-.28 0-.5-.22-.5-.5s.22-.5.5-.5.5.22.5.5-.22.5-.5.5zM7.5 9v8c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V18h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V18h1c.55 0 1-.45 1-1V9H7.5zM5.5 9c-.83 0-1.5.67-1.5 1.5v5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-5C7 9.67 6.33 9 5.5 9zm13 0c-.83 0-1.5.67-1.5 1.5v5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-5c0-.83-.67-1.5-1.5-1.5z"/>
   </svg>
 );
 
@@ -233,7 +233,7 @@ function App() {
               placeholder="Search for your favorite MOD game..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full bg-slate-700 border border-slate-600 rounded-full py-3 pl-12 pr-4 text-white focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500 focus:ring-opacity-25 outline-none transition-all duration-200"
+              className="w-full bg-slate-700 border border-slate-600 rounded-full py-3 pl-12 pr-4 text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-25 outline-none transition-all duration-200"
             />
           </div>
 
@@ -276,12 +276,12 @@ function App() {
                   <h3 className="text-white font-bold text-lg mb-2 truncate group-hover:text-amber-400 transition-colors">
                     {game.name}
                   </h3>
-                  <div className="flex items-center justify-center text-sm text-emerald-300 space-x-2">
+                  <div className="flex items-center justify-center text-sm text-blue-300 space-x-2">
                     <div className="flex items-center space-x-1">
                       <AndroidIcon />
                       <AppleIcon />
                     </div>
-                    <div className="w-0.5 h-4 bg-emerald-500 rounded"></div>
+                    <div className="w-0.5 h-4 bg-blue-500 rounded"></div>
                     <div className="flex items-center space-x-1">
                       <Download size={16} />
                       <span>{game.downloads}+</span>
@@ -314,7 +314,7 @@ function App() {
                 }
               ].map((step, index) => (
                 <div key={index} className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-emerald-500/40">
+                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-blue-500/40">
                     <div className="text-white">{step.icon}</div>
                   </div>
                   <h3 className="text-white text-xl font-semibold mb-2">{step.title}</h3>
@@ -352,22 +352,22 @@ function App() {
 
               <div className="grid grid-cols-3 gap-4 mb-6 text-sm">
                 <div className="flex flex-col items-center">
-                  <Box className="text-emerald-400 mb-2" size={24} />
+                  <Box className="text-blue-400 mb-2" size={24} />
                   <span className="text-gray-300">{selectedGame.size}</span>
                 </div>
                 <div className="flex flex-col items-center">
-                  <Download className="text-emerald-400 mb-2" size={24} />
+                  <Download className="text-blue-400 mb-2" size={24} />
                   <span className="text-gray-300">{selectedGame.downloads} Downloads</span>
                 </div>
                 <div className="flex flex-col items-center">
-                  <MessageSquare className="text-emerald-400 mb-2" size={24} />
+                  <MessageSquare className="text-blue-400 mb-2" size={24} />
                   <span className="text-gray-300">{selectedGame.reviews} Reviews</span>
                 </div>
               </div>
 
               <button
                 onClick={handleDownload}
-                className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold py-3 px-12 rounded-full shadow-lg shadow-emerald-500/40 hover:shadow-emerald-500/60 hover:-translate-y-1 transition-all duration-200 flex items-center justify-center mx-auto space-x-2"
+                className="bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold py-3 px-12 rounded-full shadow-lg shadow-blue-500/40 hover:shadow-blue-500/60 hover:-translate-y-1 transition-all duration-200 flex items-center justify-center mx-auto space-x-2"
               >
                 <Download size={20} />
                 <span>Download MOD</span>
@@ -380,7 +380,7 @@ function App() {
         {showScrollTop && (
           <button
             onClick={scrollToTop}
-            className="fixed bottom-8 right-8 bg-gradient-to-r from-emerald-500 to-teal-600 bg-opacity-90 text-white p-3 rounded-full shadow-lg hover:shadow-emerald-500/40 hover:-translate-y-1 transition-all duration-200 z-40"
+            className="fixed bottom-8 right-8 bg-gradient-to-r from-blue-500 to-purple-600 bg-opacity-90 text-white p-3 rounded-full shadow-lg hover:shadow-blue-500/40 hover:-translate-y-1 transition-all duration-200 z-40"
           >
             <ArrowUp size={24} />
           </button>
@@ -406,11 +406,11 @@ function App() {
         <footer className="bg-gradient-to-r from-slate-800 to-slate-700 text-gray-300 py-6 px-4 text-center mt-12 shadow-lg border-t border-slate-600">
           <p className="mb-2">© 2024 Free MOD Games. All rights reserved.</p>
           <div className="flex justify-center space-x-4 text-sm">
-            <a href="#" className="text-emerald-400 hover:text-amber-400 transition-colors">Privacy Policy</a>
+            <a href="#" className="text-blue-400 hover:text-amber-400 transition-colors">Privacy Policy</a>
             <span>|</span>
-            <a href="#" className="text-emerald-400 hover:text-amber-400 transition-colors">Terms of Service</a>
+            <a href="#" className="text-blue-400 hover:text-amber-400 transition-colors">Terms of Service</a>
             <span>|</span>
-            <a href="#" className="text-emerald-400 hover:text-amber-400 transition-colors">Contact Us</a>
+            <a href="#" className="text-blue-400 hover:text-amber-400 transition-colors">Contact Us</a>
           </div>
         </footer>
       </div>
