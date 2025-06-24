@@ -1,0 +1,407 @@
+import React, { useState, useEffect } from 'react';
+import { Search, Menu, Users, Gamepad2, Download, Gift, Play, Box, MessageSquare, ArrowUp, X, CuboidIcon as AndroidIcon, Smartphone } from 'lucide-react';
+
+interface Game {
+  name: string;
+  size: string;
+  stars: string;
+  downloads: string;
+  reviews: string;
+  image: string;
+  description: string;
+  features: string[];
+  category: string;
+}
+
+const gamesData: Game[] = [
+  {
+    name: "Clash Royale",
+    size: "158 MB",
+    stars: "4.8",
+    downloads: "2.3M",
+    reviews: "47.2K",
+    image: "https://adescargar.online/wp-content/uploads/2023/03/download-clash-royale.webp",
+    description: "Dominate the arena with **Clash Royale MOD**! This enhanced version provides unlimited gems and gold, allowing you to unlock and upgrade all cards instantly. Features include unlimited chests, all legendary cards unlocked, and access to exclusive tournament modes.",
+    features: ["Unlimited Gems & Gold", "All Cards Unlocked", "Unlimited Chests", "Private Servers", "No Waiting Times"],
+    category: "Strategy"
+  },
+  {
+    name: "Gossip Harbor",
+    size: "276 MB",
+    stars: "4.6",
+    downloads: "1.8M",
+    reviews: "23.5K",
+    image: "https://play-lh.googleusercontent.com/ZDxkCEXxaIVq_LBBZjqQJi7XUwufKNG6Fl9JYGSAVOhoW7aBw953h6psD4zduA9te70=w480-h960-rw",
+    description: "Uncover every mystery in **Gossip Harbor MOD**! Run your restaurant empire with unlimited energy and infinite gems. This version removes all energy restrictions, provides unlimited decoration items, and unlocks all premium storylines from the start.",
+    features: ["Unlimited Energy", "Infinite Gems", "All Stories Unlocked", "Premium Decorations", "Ad-Free Experience"],
+    category: "Simulation"
+  },
+  {
+    name: "Love & Pies",
+    size: "342 MB",
+    stars: "4.7",
+    downloads: "1.4M",
+    reviews: "31.8K",
+    image: "https://play-lh.googleusercontent.com/0AhmmWnoGGgnuI4iPz6WSrdce89IyQ9Wld2sewbK1mwBtOXbLicc5VV2D_GwT5mgb7lW=w480-h960-rw",
+    description: "Master the art of baking in **Love & Pies MOD**! This version offers unlimited energy for continuous gameplay, infinite gems for instant upgrades, and all merge items unlocked. Solve family mysteries without energy constraints and upgrade your cafe instantly.",
+    features: ["Unlimited Energy", "Infinite Gems", "All Items Unlocked", "Instant Merging", "Mystery Mode Access"],
+    category: "Puzzle"
+  },
+  {
+    name: "Minecraft",
+    size: "734 MB",
+    stars: "4.9",
+    downloads: "4.7M",
+    reviews: "89.3K",
+    image: "https://i0.wp.com/adescargar.online/wp-content/uploads/2023/01/download-minecraft.webp?fit=512%2C512&ssl=1",
+    description: "Build infinite worlds with **Minecraft MOD**! This premium version includes unlimited resources, god mode for invincibility, all skins and texture packs unlocked, and access to exclusive mods and add-ons. Create, survive, and explore without any limitations.",
+    features: ["Unlimited Resources", "God Mode", "All Skins Unlocked", "Premium Add-ons", "Creative Mode Plus"],
+    category: "Adventure"
+  },
+  {
+    name: "My Perfect Hotel",
+    size: "203 MB",
+    stars: "4.5",
+    downloads: "2.1M",
+    reviews: "35.7K",
+    image: "https://play-lh.googleusercontent.com/8P748vOHE4mCetsk2_Ss34HxSJoHtlnIxFLB3pFRawM3MR9VLDceIxbNQBdLBnM6mkMR=w480-h960-rw",
+    description: "Build your hotel empire with **My Perfect Hotel MOD**! Get unlimited money and gems to expand rapidly, unlock all premium decorations and furniture, remove all ads for uninterrupted gameplay, and access exclusive VIP floors and amenities.",
+    features: ["Unlimited Money & Gems", "All Decorations Unlocked", "VIP Floors Access", "Ad-Free Gaming", "Instant Upgrades"],
+    category: "Simulation"
+  },
+  {
+    name: "Royal Match",
+    size: "312 MB",
+    stars: "4.8",
+    downloads: "3.2M",
+    reviews: "78.4K",
+    image: "https://play-lh.googleusercontent.com/qBdVfwRCsI4KM7qewhJ0AKZKQjyD-DdxPDcdDbsRMhNO9zrwbefggn1vGqRIDZA3fg=w480-h960-rw",
+    description: "Rule your kingdom with **Royal Match MOD**! Enjoy unlimited coins for endless boosters, infinite lives for non-stop puzzle solving, all power-ups unlocked from the start, and exclusive royal decorations. Help King Robert restore his castle without any restrictions.",
+    features: ["Unlimited Coins & Lives", "All Boosters Unlocked", "Royal Decorations", "Infinite Power-ups", "Premium Levels"],
+    category: "Puzzle"
+  },
+  {
+    name: "Subway Surfers",
+    size: "167 MB",
+    stars: "4.9",
+    downloads: "5.8M",
+    reviews: "124.6K",
+    image: "https://i0.wp.com/adescargar.online/wp-content/uploads/2023/01/download-subway-surfers.webp?fit=512%2C512&ssl=1",
+    description: "Surf the subway with style in **Subway Surfers MOD**! This enhanced version provides unlimited coins and keys, all characters and hoverboards unlocked, infinite power-ups, and exclusive seasonal content. Run farther than ever with god mode protection.",
+    features: ["Unlimited Coins & Keys", "All Characters Unlocked", "Infinite Power-ups", "God Mode", "Exclusive Content"],
+    category: "Arcade"
+  },
+  {
+    name: "Toca Life World",
+    size: "523 MB",
+    stars: "4.6",
+    downloads: "1.9M",
+    reviews: "41.3K",
+    image: "https://play-lh.googleusercontent.com/Elecg80RmZ8j3v2CSSZl1Z_87xG5M9E51hZkmFwjSaQFg3WZMk_hBJZbj9OgGaM9Ujc=s96-rw",
+    description: "Create unlimited stories with **Toca Life World MOD**! This complete version unlocks all locations, characters, and furniture sets. Enjoy premium clothing collections, exclusive pets, special event items, and access to all seasonal updates without restrictions.",
+    features: ["All Locations Unlocked", "Premium Characters", "Exclusive Items", "Seasonal Content", "Unlimited Creativity"],
+    category: "Educational"
+  },
+  {
+    name: "Whiteout Survival",
+    size: "1.4 GB",
+    stars: "4.4",
+    downloads: "987K",
+    reviews: "19.8K",
+    image: "https://play-lh.googleusercontent.com/gtcDOls1xCaV_qtRKx3dsk75bNBqel81gWkhK2xvgq5KKHj_71lnZjXYO6He97w0j-U=w480-h960-rw",
+    description: "Survive the apocalypse with **Whiteout Survival MOD**! Command unlimited resources, instant building and research completion, invincible troops and heroes, plus access to premium alliance features. Lead humanity through the frozen wasteland with overwhelming power.",
+    features: ["Unlimited Resources", "Instant Building", "Invincible Units", "Premium Alliances", "God Mode"],
+    category: "Strategy"
+  },
+  {
+    name: "Zen Match",
+    size: "189 MB",
+    stars: "4.7",
+    downloads: "1.6M",
+    reviews: "28.9K",
+    image: "https://play-lh.googleusercontent.com/3egWC9bantIWkHK0b75eNDz0RTH4uUyqwf3giquyQXPVgVeCB0vn_m8N4SAUEQVGAxo=w480-h960-rw",
+    description: "Find perfect harmony with **Zen Match MOD**! This peaceful version offers unlimited hints and undos, all tile sets and backgrounds unlocked, ad-free meditation experience, and exclusive zen garden decorations. Achieve mindfulness without interruptions.",
+    features: ["Unlimited Hints & Undos", "All Themes Unlocked", "Ad-Free Experience", "Zen Garden Mode", "Meditation Music"],
+    category: "Puzzle"
+  }
+].sort((a, b) => a.name.localeCompare(b.name));
+
+function App() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedGame, setSelectedGame] = useState<Game | null>(null);
+  const [filteredGames, setFilteredGames] = useState<Game[]>(gamesData);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  const [toasts, setToasts] = useState<Array<{id: number, message: string, type: string}>>([]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 200);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (searchTerm.trim() === '') {
+      setFilteredGames(gamesData);
+    } else {
+      const filtered = gamesData.filter(game =>
+        game.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        game.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        game.category.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredGames(filtered);
+    }
+  }, [searchTerm]);
+
+  const showToast = (message: string, type: string = 'info') => {
+    const id = Date.now();
+    setToasts(prev => [...prev, { id, message, type }]);
+    setTimeout(() => {
+      setToasts(prev => prev.filter(toast => toast.id !== id));
+    }, 3000);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const openGameDetails = (game: Game) => {
+    setSelectedGame(game);
+  };
+
+  const closeGameDetails = () => {
+    setSelectedGame(null);
+  };
+
+  const handleDownload = () => {
+    showToast('Redirecting to secure download...', 'success');
+    // Simulate download process
+    setTimeout(() => {
+      showToast('Complete the verification to unlock your download!', 'info');
+    }, 1500);
+  };
+
+  return (
+    <div className="min-h-screen bg-cover bg-center bg-fixed" style={{
+      backgroundImage: "url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiaR2W8tPL1dNgrEGBdTSHXbzxHJ-G16lafoIZGDz1hy2Zmceg4BzB3Y7LR9yiovD95hLsl_4ABhzXSbUGNpy7uMwQtNZgewMvgu_aCb2jWci089pKK5LL1j3dTFuSUvUQvnY0OVJnI96GPCOj6Dot9uiPy13LOwZRA2iY0CmFgP-Le9QqrdNLUbnGrJn4/s1600/6283431_3224165.jpg')"
+    }}>
+      <div className="bg-slate-900 bg-opacity-96 min-h-screen">
+        {/* Navigation */}
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-800 shadow-lg">
+          <div className="flex justify-between items-center p-4">
+            <button 
+              onClick={() => showToast('Navigation menu under development!', 'info')}
+              className="text-white hover:text-yellow-400 transition-colors"
+            >
+              <Menu size={28} />
+            </button>
+            <img 
+              src="https://adescargar.online/wp-content/uploads/2023/10/IMG_20231027_220607_258.png" 
+              alt="Free MOD Games Logo" 
+              className="h-11"
+            />
+            <button 
+              onClick={() => showToast('Community features coming soon!', 'info')}
+              className="text-white hover:text-yellow-400 transition-colors"
+            >
+              <Users size={28} />
+            </button>
+          </div>
+        </nav>
+
+        <div className="pt-20 px-4 max-w-6xl mx-auto">
+          {/* Search */}
+          <div className="relative my-8">
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 z-10" size={20} />
+            <input
+              type="text"
+              placeholder="Search for your favorite MOD game..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full bg-slate-700 border border-slate-600 rounded-full py-3 pl-12 pr-4 text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-25 outline-none transition-all"
+            />
+          </div>
+
+          {/* Title */}
+          <div className="flex items-center mb-6">
+            <div className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg shadow-yellow-400/40">
+              <Gamepad2 className="text-slate-800" size={24} />
+            </div>
+            <h1 className="text-white text-2xl font-bold ml-4">Top MOD Games</h1>
+          </div>
+
+          {/* Games Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-12">
+            {filteredGames.length === 0 ? (
+              <div className="col-span-full text-center text-gray-300 py-16">
+                <p className="text-xl">No games found matching your search.</p>
+              </div>
+            ) : (
+              filteredGames.map((game, index) => (
+                <div
+                  key={index}
+                  onClick={() => openGameDetails(game)}
+                  className="bg-slate-700 rounded-2xl p-5 text-center shadow-lg hover:shadow-xl hover:transform hover:-translate-y-2 hover:scale-105 transition-all duration-300 cursor-pointer group"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <div className="relative mb-4">
+                    <img
+                      src={game.image}
+                      alt={`${game.name} icon`}
+                      className="w-32 h-32 mx-auto rounded-2xl border-3 border-slate-600 object-cover"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = 'https://placehold.co/130x130/273D52/ffffff?text=Game+Icon';
+                      }}
+                    />
+                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-slate-800 font-bold rounded-2xl px-3 py-1 text-sm border-4 border-slate-700 shadow-md">
+                      MOD
+                    </div>
+                  </div>
+                  <h3 className="text-white font-bold text-lg mb-2 truncate group-hover:text-yellow-400 transition-colors">
+                    {game.name}
+                  </h3>
+                  <div className="flex items-center justify-center text-sm text-blue-300 space-x-2">
+                    <div className="flex items-center space-x-1">
+                      <Smartphone size={16} />
+                      <AndroidIcon size={16} />
+                    </div>
+                    <div className="w-0.5 h-4 bg-blue-500 rounded"></div>
+                    <div className="flex items-center space-x-1">
+                      <Download size={16} />
+                      <span>{game.downloads}+</span>
+                    </div>
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+
+          {/* How It Works */}
+          <section className="bg-slate-800 rounded-2xl p-8 shadow-xl mb-12">
+            <h2 className="text-yellow-400 text-3xl font-bold text-center mb-8">How It Works</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: <Download size={36} />,
+                  title: "1. Select Your Game",
+                  description: "Browse our extensive collection of MOD APKs and choose your favorite game to download."
+                },
+                {
+                  icon: <Gift size={36} />,
+                  title: "2. Complete a Quick Offer",
+                  description: "Support our service by completing a brief, free sponsor offer. This unlocks your download!"
+                },
+                {
+                  icon: <Play size={36} />,
+                  title: "3. Enjoy Your MOD!",
+                  description: "Once completed, your high-speed download will begin instantly. Install and play with unlimited features!"
+                }
+              ].map((step, index) => (
+                <div key={index} className="text-center">
+                  <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-blue-500/40">
+                    <div className="text-white">{step.icon}</div>
+                  </div>
+                  <h3 className="text-white text-xl font-semibold mb-2">{step.title}</h3>
+                  <p className="text-gray-300 leading-relaxed max-w-xs mx-auto">{step.description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
+
+        {/* Game Details Modal */}
+        {selectedGame && (
+          <div className="fixed inset-0 bg-black bg-opacity-85 flex items-center justify-center p-4 z-50 animate-in fade-in duration-300">
+            <div className="bg-slate-800 rounded-3xl p-8 max-w-lg w-full text-center text-white relative animate-in slide-in-from-bottom-4 duration-300">
+              <button
+                onClick={closeGameDetails}
+                className="absolute top-5 right-5 text-white hover:text-red-400 hover:rotate-90 transition-all duration-200"
+              >
+                <X size={32} />
+              </button>
+              
+              <img
+                src={selectedGame.image}
+                alt={`${selectedGame.name} icon`}
+                className="w-44 h-44 mx-auto -mt-16 rounded-3xl border-8 border-slate-800 shadow-xl object-cover"
+              />
+              
+              <h2 className="text-yellow-400 text-3xl font-bold mt-4 mb-4">{selectedGame.name}</h2>
+              
+              <div className="text-gray-300 mb-6 leading-relaxed" 
+                   dangerouslySetInnerHTML={{ 
+                     __html: selectedGame.description.replace(/\*\*(.*?)\*\*/g, '<strong class="text-white">$1</strong>') 
+                   }} 
+              />
+
+              <div className="grid grid-cols-3 gap-4 mb-6 text-sm">
+                <div className="flex flex-col items-center">
+                  <Box className="text-blue-400 mb-2" size={24} />
+                  <span className="text-gray-300">{selectedGame.size}</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <Download className="text-blue-400 mb-2" size={24} />
+                  <span className="text-gray-300">{selectedGame.downloads} Downloads</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <MessageSquare className="text-blue-400 mb-2" size={24} />
+                  <span className="text-gray-300">{selectedGame.reviews} Reviews</span>
+                </div>
+              </div>
+
+              <button
+                onClick={handleDownload}
+                className="bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold py-3 px-12 rounded-full shadow-lg shadow-blue-500/40 hover:shadow-blue-500/60 hover:-translate-y-1 transition-all duration-200 flex items-center justify-center mx-auto space-x-2"
+              >
+                <Download size={20} />
+                <span>Download MOD</span>
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Scroll to Top */}
+        {showScrollTop && (
+          <button
+            onClick={scrollToTop}
+            className="fixed bottom-8 right-8 bg-blue-500 bg-opacity-70 text-white p-3 rounded-full shadow-lg hover:bg-blue-600 hover:-translate-y-1 transition-all duration-200 z-40"
+          >
+            <ArrowUp size={24} />
+          </button>
+        )}
+
+        {/* Toast Notifications */}
+        <div className="fixed bottom-5 left-1/2 transform -translate-x-1/2 z-50 space-y-2">
+          {toasts.map(toast => (
+            <div
+              key={toast.id}
+              className={`px-6 py-3 rounded-lg shadow-lg text-white text-center min-w-64 animate-in slide-in-from-bottom-2 ${
+                toast.type === 'success' ? 'bg-green-600' :
+                toast.type === 'error' ? 'bg-red-600' :
+                'bg-blue-600'
+              }`}
+            >
+              {toast.message}
+            </div>
+          ))}
+        </div>
+
+        {/* Footer */}
+        <footer className="bg-slate-800 text-gray-300 py-6 px-4 text-center mt-12 shadow-lg">
+          <p className="mb-2">© 2024 Free MOD Games. All rights reserved.</p>
+          <div className="flex justify-center space-x-4 text-sm">
+            <a href="#" className="text-blue-400 hover:text-yellow-400">Privacy Policy</a>
+            <span>|</span>
+            <a href="#" className="text-blue-400 hover:text-yellow-400">Terms of Service</a>
+            <span>|</span>
+            <a href="#" className="text-blue-400 hover:text-yellow-400">Contact Us</a>
+          </div>
+        </footer>
+      </div>
+    </div>
+  );
+}
+
+export default App;
