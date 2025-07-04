@@ -26,37 +26,37 @@ const gamesData: Game[] = [
     category: "Strategy"
   },
   {
-    name: "Gossip Harbor",
+    name: "Toca Boca Jr",
     size: "276 MB",
     stars: "4.6",
     downloads: "1.8M",
     reviews: "23.5K",
-    image: "https://play-lh.googleusercontent.com/ZDxkCEXxaIVq_LBBZjqQJi7XUwufKNG6Fl9JYGSAVOhoW7aBw953h6psD4zduA9te70=w480-h960-rw",
-    description: "Uncover every mystery in **Gossip Harbor MOD**! Run your restaurant empire with unlimited energy and infinite gems. This version removes all energy restrictions, provides unlimited decoration items, and unlocks all premium storylines from the start.",
-    features: ["Unlimited Energy", "Infinite Gems", "All Stories Unlocked", "Premium Decorations", "Ad-Free Experience"],
-    category: "Simulation"
+    image: "https://images.appmagic.rocks/?uri=https://play-lh.googleusercontent.com/LfUnZ0XOfIE97EBq9Ih1Pz_hNeV4yZp9vpIm9XY0jUbnkXFfxHwqNIUo13eU1x_vYJU=s196-c",
+    description: "Explore endless creativity with **Toca Boca Jr MOD**! This enhanced version unlocks all premium content, characters, and locations. Features unlimited customization options, exclusive items, and access to all seasonal content without restrictions.",
+    features: ["All Content Unlocked", "Premium Characters", "Unlimited Customization", "Exclusive Items", "Ad-Free Experience"],
+    category: "Educational"
   },
   {
-    name: "Love & Pies",
+    name: "MARVEL Mystic Mayhem",
     size: "342 MB",
     stars: "4.7",
     downloads: "1.4M",
     reviews: "31.8K",
-    image: "https://play-lh.googleusercontent.com/0AhmmWnoGGgnuI4iPz6WSrdce89IyQ9Wld2sewbK1mwBtOXbLicc5VV2D_GwT5mgb7lW=w480-h960-rw",
-    description: "Master the art of baking in **Love & Pies MOD**! This version offers unlimited energy for continuous gameplay, infinite gems for instant upgrades, and all merge items unlocked. Solve family mysteries without energy constraints and upgrade your cafe instantly.",
-    features: ["Unlimited Energy", "Infinite Gems", "All Items Unlocked", "Instant Merging", "Mystery Mode Access"],
-    category: "Puzzle"
+    image: "https://images.appmagic.rocks/?uri=https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ff/a5/03/ffa503a7-43c0-3625-7e8a-c8181e670128/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/0x196h.jpg",
+    description: "Unleash superhero power with **MARVEL Mystic Mayhem MOD**! This version offers unlimited energy and resources, all heroes unlocked from the start, infinite upgrade materials, and access to exclusive Marvel storylines and premium costumes.",
+    features: ["Unlimited Energy & Resources", "All Heroes Unlocked", "Infinite Upgrades", "Premium Costumes", "Exclusive Storylines"],
+    category: "Action"
   },
   {
-    name: "Minecraft",
+    name: "Bluey: Let's Play!",
     size: "734 MB",
     stars: "4.9",
     downloads: "4.7M",
     reviews: "89.3K",
-    image: "https://i0.wp.com/adescargar.online/wp-content/uploads/2023/01/download-minecraft.webp?fit=512%2C512&ssl=1",
-    description: "Build infinite worlds with **Minecraft MOD**! This premium version includes unlimited resources, god mode for invincibility, all skins and texture packs unlocked, and access to exclusive mods and add-ons. Create, survive, and explore without any limitations.",
-    features: ["Unlimited Resources", "God Mode", "All Skins Unlocked", "Premium Add-ons", "Creative Mode Plus"],
-    category: "Adventure"
+    image: "https://images.appmagic.rocks/?uri=https://play-lh.googleusercontent.com/ThMSamW25k0jkaQgss-baKGzKLNtzNcTFk1FLFCaFcy9or5CdVozU19hM7dnROeH4w=s196-c",
+    description: "Join Bluey's adventures with **Bluey: Let's Play! MOD**! This enhanced version unlocks all games and activities, provides unlimited energy for continuous play, and includes exclusive content featuring the beloved Australian Blue Heeler family.",
+    features: ["All Games Unlocked", "Unlimited Energy", "Exclusive Content", "Premium Activities", "Ad-Free Fun"],
+    category: "Educational"
   },
   {
     name: "My Perfect Hotel",
@@ -92,13 +92,13 @@ const gamesData: Game[] = [
     category: "Arcade"
   },
   {
-    name: "Toca Life World",
+    name: "Toca Boca World",
     size: "523 MB",
     stars: "4.6",
     downloads: "1.9M",
     reviews: "41.3K",
     image: "https://play-lh.googleusercontent.com/Elecg80RmZ8j3v2CSSZl1Z_87xG5M9E51hZkmFwjSaQFg3WZMk_hBJZbj9OgGaM9Ujc=s96-rw",
-    description: "Create unlimited stories with **Toca Life World MOD**! This complete version unlocks all locations, characters, and furniture sets. Enjoy premium clothing collections, exclusive pets, special event items, and access to all seasonal updates without restrictions.",
+    description: "Create unlimited stories with **Toca Boca World MOD**! This complete version unlocks all locations, characters, and furniture sets. Enjoy premium clothing collections, exclusive pets, special event items, and access to all seasonal updates without restrictions.",
     features: ["All Locations Unlocked", "Premium Characters", "Exclusive Items", "Seasonal Content", "Unlimited Creativity"],
     category: "Educational"
   },
@@ -114,15 +114,15 @@ const gamesData: Game[] = [
     category: "Strategy"
   },
   {
-    name: "Zen Match",
+    name: "Kingshot",
     size: "189 MB",
     stars: "4.7",
     downloads: "1.6M",
     reviews: "28.9K",
-    image: "https://play-lh.googleusercontent.com/3egWC9bantIWkHK0b75eNDz0RTH4uUyqwf3giquyQXPVgVeCB0vn_m8N4SAUEQVGAxo=w480-h960-rw",
-    description: "Find perfect harmony with **Zen Match MOD**! This peaceful version offers unlimited hints and undos, all tile sets and backgrounds unlocked, ad-free meditation experience, and exclusive zen garden decorations. Achieve mindfulness without interruptions.",
-    features: ["Unlimited Hints & Undos", "All Themes Unlocked", "Ad-Free Experience", "Zen Garden Mode", "Meditation Music"],
-    category: "Puzzle"
+    image: "https://images.appmagic.rocks/?uri=https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/da/d4/5e/dad45e18-73f6-81d3-afaf-a000eb84ac73/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/0x196h.jpg",
+    description: "Master the art of precision shooting with **Kingshot MOD**! This enhanced version offers unlimited ammo and energy, all weapons and upgrades unlocked, god mode for invincibility, and access to exclusive tournament modes with premium rewards.",
+    features: ["Unlimited Ammo & Energy", "All Weapons Unlocked", "God Mode", "Premium Tournaments", "Exclusive Rewards"],
+    category: "Action"
   }
 ].sort((a, b) => a.name.localeCompare(b.name));
 
