@@ -15,15 +15,15 @@ interface Game {
 
 const gamesData: Game[] = [
   {
-    name: "Clash Royale",
-    size: "158 MB",
-    stars: "4.8",
-    downloads: "2.3M",
-    reviews: "47.2K",
-    image: "https://adescargar.online/wp-content/uploads/2023/03/download-clash-royale.webp",
-    description: "Dominate the arena with **Clash Royale MOD**! This enhanced version provides unlimited gems and gold, allowing you to unlock and upgrade all cards instantly. Features include unlimited chests, all legendary cards unlocked, and access to exclusive tournament modes.",
-    features: ["Unlimited Gems & Gold", "All Cards Unlocked", "Unlimited Chests", "Private Servers", "No Waiting Times"],
-    category: "Strategy"
+    name: "Kingshot",
+    size: "189 MB",
+    stars: "4.7",
+    downloads: "1.6M",
+    reviews: "28.9K",
+    image: "https://images.appmagic.rocks/?uri=https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/da/d4/5e/dad45e18-73f6-81d3-afaf-a000eb84ac73/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/0x196h.jpg",
+    description: "Master the art of precision shooting with **Kingshot MOD**! This enhanced version offers unlimited ammo and energy, all weapons and upgrades unlocked, god mode for invincibility, and access to exclusive tournament modes with premium rewards.",
+    features: ["Unlimited Ammo & Energy", "All Weapons Unlocked", "God Mode", "Premium Tournaments", "Exclusive Rewards"],
+    category: "Action"
   },
   {
     name: "Toca Boca Jr",
