@@ -114,15 +114,15 @@ const gamesData: Game[] = [
     category: "Strategy"
   },
   {
-    name: "Kingshot",
-    size: "189 MB",
-    stars: "4.7",
-    downloads: "1.6M",
-    reviews: "28.9K",
-    image: "https://images.appmagic.rocks/?uri=https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/da/d4/5e/dad45e18-73f6-81d3-afaf-a000eb84ac73/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/0x196h.jpg",
-    description: "Master the art of precision shooting with **Kingshot MOD**! This enhanced version offers unlimited ammo and energy, all weapons and upgrades unlocked, god mode for invincibility, and access to exclusive tournament modes with premium rewards.",
-    features: ["Unlimited Ammo & Energy", "All Weapons Unlocked", "God Mode", "Premium Tournaments", "Exclusive Rewards"],
-    category: "Action"
+    name: "Squad Busters",
+    size: "425 MB",
+    stars: "4.5",
+    downloads: "2.8M",
+    reviews: "52.1K",
+    image: "https://images.appmagic.rocks/?uri=https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d4/11/a5/d411a566-a7ba-ab83-6623-ea9b140dfba0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/0x196h.jpg",
+    description: "Unite your favorite Supercell characters with **Squad Busters MOD**! This enhanced version provides unlimited gems and coins, all characters unlocked from the start, instant upgrades, and access to exclusive battle modes. Build the ultimate squad with heroes from Clash of Clans, Clash Royale, Boom Beach, and more!",
+    features: ["Unlimited Gems & Coins", "All Characters Unlocked", "Instant Upgrades", "Exclusive Battle Modes", "Premium Squad Combinations"],
+    category: "Strategy"
   }
 ].sort((a, b) => a.name.localeCompare(b.name));
 
