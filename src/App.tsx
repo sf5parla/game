@@ -81,15 +81,15 @@ const gamesData: Game[] = [
     category: "Puzzle"
   },
   {
-    name: "Subway Surfers",
-    size: "167 MB",
-    stars: "4.9",
-    downloads: "5.8M",
-    reviews: "124.6K",
-    image: "https://i0.wp.com/adescargar.online/wp-content/uploads/2023/01/download-subway-surfers.webp?fit=512%2C512&ssl=1",
-    description: "Surf the subway with style in **Subway Surfers MOD**! This enhanced version provides unlimited coins and keys, all characters and hoverboards unlocked, infinite power-ups, and exclusive seasonal content. Run farther than ever with god mode protection.",
-    features: ["Unlimited Coins & Keys", "All Characters Unlocked", "Infinite Power-ups", "God Mode", "Exclusive Content"],
-    category: "Arcade"
+    name: "Gossip Harbor: Merge & Story",
+    size: "245 MB",
+    stars: "4.6",
+    downloads: "1.7M",
+    reviews: "32.4K",
+    image: "https://images.appmagic.rocks/?uri=https://play-lh.googleusercontent.com/FuBcll6v6PtX63rrUvojoIRGObFMPb8fCRllE4k6El-UeSwO8sF-CXMWQe_E6y-5PE4=s196-c",
+    description: "Dive into the drama with **Gossip Harbor: Merge & Story MOD**! This enhanced version provides unlimited energy and coins, all premium storylines unlocked, instant merge completion, and access to exclusive characters and outfits. Uncover secrets and create your own romantic drama without any restrictions.",
+    features: ["Unlimited Energy & Coins", "All Stories Unlocked", "Instant Merge", "Premium Characters", "Exclusive Outfits"],
+    category: "Simulation"
   },
   {
     name: "Toca Boca World",
