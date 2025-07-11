@@ -101,6 +101,17 @@ const gamesData: Game[] = [
     description: "Unite your favorite Supercell characters with **Squad Busters MOD**! This enhanced version provides unlimited gems and coins, all characters unlocked from the start, instant upgrades, and access to exclusive battle modes. Build the ultimate squad with heroes from Clash of Clans, Clash Royale, Boom Beach, and more!",
     features: ["Unlimited Gems & Coins", "All Characters Unlocked", "Instant Upgrades", "Exclusive Battle Modes", "Premium Squad Combinations"],
     category: "Strategy"
+  },
+  {
+    name: "Toca Boca World x KATSEYE",
+    size: "1.2 GB",
+    stars: "4.7",
+    downloads: "3.5M",
+    reviews: "78.3K",
+    image: "https://play-lh.googleusercontent.com/QZisp4H3LZ-Xc5ob7W1etIGWa2f_ncdQuCVghOXGjjNpTdL4nwwFci1msOKACqZMmQsp=s96-rw",
+    description: "Create your dream world with **Toca Boca World x KATSEYE MOD**! This special collaboration edition offers unlimited coins and gems, all locations and characters unlocked, exclusive KATSEYE-themed content, premium outfits and accessories, plus ad-free creative gameplay for endless storytelling possibilities.",
+    features: ["Unlimited Coins & Gems", "All Locations Unlocked", "KATSEYE Exclusive Content", "Premium Outfits", "Ad-Free Experience"],
+    category: "Simulation"
   }
 ].sort((a, b) => a.name.localeCompare(b.name));
 
