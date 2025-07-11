@@ -15,26 +15,37 @@ interface Game {
 
 const gamesData: Game[] = [
   {
-    name: "Kingshot",
-    size: "189 MB",
-    stars: "4.7",
-    downloads: "1.6M",
-    reviews: "28.9K",
-    image: "https://images.appmagic.rocks/?uri=https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/da/d4/5e/dad45e18-73f6-81d3-afaf-a000eb84ac73/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/0x196h.jpg",
-    description: "Master the art of precision shooting with **Kingshot MOD**! This enhanced version offers unlimited ammo and energy, all weapons and upgrades unlocked, god mode for invincibility, and access to exclusive tournament modes with premium rewards.",
-    features: ["Unlimited Ammo & Energy", "All Weapons Unlocked", "God Mode", "Premium Tournaments", "Exclusive Rewards"],
+    name: "Umamusume: Pretty Derby",
+    size: "3.2 GB",
+    stars: "4.8",
+    downloads: "2.3M",
+    reviews: "45.7K",
+    image: "https://lh3.googleusercontent.com/FzbRkH5mH1KS1LyJDticeZ1C_yfgJ3OchPS9hwHJfn99AegQvXbDGQElvhC5BZ3bcDHBDrzlwBeCG_elEVGvs-Y2O0iDBcHb8_2D=rw",
+    description: "Experience the ultimate horse racing adventure with **Umamusume: Pretty Derby MOD**! This enhanced version provides unlimited jewels and coins, all Uma Musume characters unlocked, infinite training points, and access to exclusive storylines and premium outfits.",
+    features: ["Unlimited Jewels & Coins", "All Characters Unlocked", "Infinite Training Points", "Premium Outfits", "Exclusive Storylines"],
+    category: "Simulation"
+  },
+  {
+    name: "DC Worlds Collide",
+    size: "1.8 GB",
+    stars: "4.6",
+    downloads: "1.9M",
+    reviews: "38.2K",
+    image: "https://lh3.googleusercontent.com/GBNvAn1KvnRcym8qD2JtPewl1jqsJ95ljoBSydSUOpHA6qVVXv428WOaoXnGphhWSiw3uydNGqUS-nrtZjWM3VwuCHc8K0RX8WQA=rw",
+    description: "Unite DC's greatest heroes with **DC Worlds Collide MOD**! This enhanced version offers unlimited energy and resources, all legendary heroes unlocked, infinite upgrade materials, and access to exclusive multiverse storylines with premium costumes.",
+    features: ["Unlimited Energy & Resources", "All Heroes Unlocked", "Infinite Upgrades", "Premium Costumes", "Multiverse Storylines"],
     category: "Action"
   },
   {
-    name: "Toca Boca Jr",
-    size: "276 MB",
-    stars: "4.6",
-    downloads: "1.8M",
-    reviews: "23.5K",
-    image: "https://images.appmagic.rocks/?uri=https://play-lh.googleusercontent.com/LfUnZ0XOfIE97EBq9Ih1Pz_hNeV4yZp9vpIm9XY0jUbnkXFfxHwqNIUo13eU1x_vYJU=s196-c",
-    description: "Explore endless creativity with **Toca Boca Jr MOD**! This enhanced version unlocks all premium content, characters, and locations. Features unlimited customization options, exclusive items, and access to all seasonal content without restrictions.",
-    features: ["All Content Unlocked", "Premium Characters", "Unlimited Customization", "Exclusive Items", "Ad-Free Experience"],
-    category: "Educational"
+    name: "Persona 5: The Phantom X",
+    size: "4.1 GB",
+    stars: "4.9",
+    downloads: "3.1M",
+    reviews: "67.4K",
+    image: "https://lh3.googleusercontent.com/uQUmeBB7fFKXuxaRqzwGhtID5_lmvOy3YJcGmHYUoH8Y41yQKEAqqSLRNPMUau5vybLF8D5NUkxMh3d5bZxCi9SsZOlxerVhE8ii=rw",
+    description: "Steal hearts in style with **Persona 5: The Phantom X MOD**! This enhanced version provides unlimited SP and money, all Personas unlocked, infinite confidant points, and access to exclusive Phantom Thieves content with premium outfits and storylines.",
+    features: ["Unlimited SP & Money", "All Personas Unlocked", "Infinite Confidant Points", "Premium Outfits", "Exclusive Content"],
+    category: "RPG"
   },
   {
     name: "MARVEL Mystic Mayhem",
@@ -48,17 +59,6 @@ const gamesData: Game[] = [
     category: "Action"
   },
   {
-    name: "Bluey: Let's Play!",
-    size: "734 MB",
-    stars: "4.9",
-    downloads: "4.7M",
-    reviews: "89.3K",
-    image: "https://images.appmagic.rocks/?uri=https://play-lh.googleusercontent.com/ThMSamW25k0jkaQgss-baKGzKLNtzNcTFk1FLFCaFcy9or5CdVozU19hM7dnROeH4w=s196-c",
-    description: "Join Bluey's adventures with **Bluey: Let's Play! MOD**! This enhanced version unlocks all games and activities, provides unlimited energy for continuous play, and includes exclusive content featuring the beloved Australian Blue Heeler family.",
-    features: ["All Games Unlocked", "Unlimited Energy", "Exclusive Content", "Premium Activities", "Ad-Free Fun"],
-    category: "Educational"
-  },
-  {
     name: "My Perfect Hotel",
     size: "203 MB",
     stars: "4.5",
@@ -67,28 +67,6 @@ const gamesData: Game[] = [
     image: "https://play-lh.googleusercontent.com/8P748vOHE4mCetsk2_Ss34HxSJoHtlnIxFLB3pFRawM3MR9VLDceIxbNQBdLBnM6mkMR=w480-h960-rw",
     description: "Build your hotel empire with **My Perfect Hotel MOD**! Get unlimited money and gems to expand rapidly, unlock all premium decorations and furniture, remove all ads for uninterrupted gameplay, and access exclusive VIP floors and amenities.",
     features: ["Unlimited Money & Gems", "All Decorations Unlocked", "VIP Floors Access", "Ad-Free Gaming", "Instant Upgrades"],
-    category: "Simulation"
-  },
-  {
-    name: "Royal Match",
-    size: "312 MB",
-    stars: "4.8",
-    downloads: "3.2M",
-    reviews: "78.4K",
-    image: "https://play-lh.googleusercontent.com/qBdVfwRCsI4KM7qewhJ0AKZKQjyD-DdxPDcdDbsRMhNO9zrwbefggn1vGqRIDZA3fg=w480-h960-rw",
-    description: "Rule your kingdom with **Royal Match MOD**! Enjoy unlimited coins for endless boosters, infinite lives for non-stop puzzle solving, all power-ups unlocked from the start, and exclusive royal decorations. Help King Robert restore his castle without any restrictions.",
-    features: ["Unlimited Coins & Lives", "All Boosters Unlocked", "Royal Decorations", "Infinite Power-ups", "Premium Levels"],
-    category: "Puzzle"
-  },
-  {
-    name: "Gossip Harbor: Merge & Story",
-    size: "245 MB",
-    stars: "4.6",
-    downloads: "1.7M",
-    reviews: "32.4K",
-    image: "https://images.appmagic.rocks/?uri=https://play-lh.googleusercontent.com/FuBcll6v6PtX63rrUvojoIRGObFMPb8fCRllE4k6El-UeSwO8sF-CXMWQe_E6y-5PE4=s196-c",
-    description: "Dive into the drama with **Gossip Harbor: Merge & Story MOD**! This enhanced version provides unlimited energy and coins, all premium storylines unlocked, instant merge completion, and access to exclusive characters and outfits. Uncover secrets and create your own romantic drama without any restrictions.",
-    features: ["Unlimited Energy & Coins", "All Stories Unlocked", "Instant Merge", "Premium Characters", "Exclusive Outfits"],
     category: "Simulation"
   },
   {
