@@ -70,15 +70,15 @@ const gamesData: Game[] = [
     category: "Simulation"
   },
   {
-    name: "Toca Boca World",
-    size: "523 MB",
+    name: "Royal Kingdom",
+    size: "892 MB",
     stars: "4.6",
-    downloads: "1.9M",
-    reviews: "41.3K",
-    image: "https://play-lh.googleusercontent.com/Elecg80RmZ8j3v2CSSZl1Z_87xG5M9E51hZkmFwjSaQFg3WZMk_hBJZbj9OgGaM9Ujc=s96-rw",
-    description: "Create unlimited stories with **Toca Boca World MOD**! This complete version unlocks all locations, characters, and furniture sets. Enjoy premium clothing collections, exclusive pets, special event items, and access to all seasonal updates without restrictions.",
-    features: ["All Locations Unlocked", "Premium Characters", "Exclusive Items", "Seasonal Content", "Unlimited Creativity"],
-    category: "Educational"
+    downloads: "1.8M",
+    reviews: "34.7K",
+    image: "https://lh3.googleusercontent.com/Mn69XcPxG19NMu5VxhXMGSpOrxtkz65j6Lbp0aZX3D-4Duzf_fJFUjRlCfNzj_Qk8VwLogcGKQ9JPbX4nJ5ahixNlFO1O9hSOWys=rw",
+    description: "Build your medieval empire with **Royal Kingdom MOD**! This enhanced version provides unlimited gold and gems, all buildings and decorations unlocked, instant construction and upgrades, plus access to exclusive royal content and premium castle designs.",
+    features: ["Unlimited Gold & Gems", "All Buildings Unlocked", "Instant Construction", "Premium Designs", "Royal Content"],
+    category: "Strategy"
   },
   {
     name: "Whiteout Survival",
