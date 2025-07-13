@@ -200,7 +200,7 @@ function App() {
               <Menu size={28} />
             </button>
             <img 
-              src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fclipartcraft.com%2Fimages%2Fgamer-logo-black-4.png&f=1&nofb=1&ipt=801b9cd1e978089a05ee9ed0d35c0e845f1f7156520de8c8f9d04e50624980e7" 
+              src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fthumbnails%2F020%2F921%2F877%2Fsmall_2x%2Fjoystick-icon-in-gradient-colors-controller-signs-illustration-png.png&f=1&nofb=1&ipt=2aecb75066b6650f6f21b9881c558de8b4af7e8d0905e5decb21b38344cb9331" 
               alt="Free MOD Games Logo" 
               className="h-11 rounded-lg"
             />
