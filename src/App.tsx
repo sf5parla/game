@@ -202,7 +202,7 @@ function App() {
             <img 
               src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fthumbnails%2F020%2F921%2F877%2Fsmall_2x%2Fjoystick-icon-in-gradient-colors-controller-signs-illustration-png.png&f=1&nofb=1&ipt=2aecb75066b6650f6f21b9881c558de8b4af7e8d0905e5decb21b38344cb9331" 
               alt="Free MOD Games Logo" 
-              className="h-12 w-12 rounded-lg object-contain"
+              className="h-16 w-16 rounded-lg object-contain"
             />
             <button 
               onClick={() => showToast('Community features coming soon!', 'info')}
