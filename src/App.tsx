@@ -200,9 +200,9 @@ function App() {
               <Menu size={28} />
             </button>
             <img 
-              src="https://adescargar.online/wp-content/uploads/2023/10/IMG_20231027_220607_258.png" 
+              src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.8u3WGCE9Wokkabvi_2PExAHaHa%3Fpid%3DApi&f=1&ipt=531726a6b2abfefe9d0c56f999842784b20ea851fa9b716128a2f1a0a551b55e&ipo=images" 
               alt="Free MOD Games Logo" 
-              className="h-11"
+              className="h-11 rounded-lg"
             />
             <button 
               onClick={() => showToast('Community features coming soon!', 'info')}
@@ -215,14 +215,14 @@ function App() {
 
         <div className="pt-20 px-4 max-w-6xl mx-auto">
           {/* Search */}
-          <div className="relative my-8">
+          <div className="relative my-8 z-10">
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 z-10" size={20} />
             <input
               type="text"
               placeholder="Search for your favorite MOD game..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full bg-slate-700 border border-slate-600 rounded-full py-3 pl-12 pr-4 text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-25 outline-none transition-all duration-200"
+              className="w-full bg-slate-700 bg-opacity-90 border border-slate-600 rounded-full py-3 pl-12 pr-4 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-25 outline-none transition-all duration-200 shadow-lg"
             />
           </div>
 
