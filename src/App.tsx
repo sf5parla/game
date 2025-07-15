@@ -15,6 +15,17 @@ interface Game {
 
 const gamesData: Game[] = [
   {
+    name: "Football League 2025",
+    size: "1.6 GB",
+    stars: "4.8",
+    downloads: "4.2M",
+    reviews: "89.5K",
+    image: "https://play-lh.googleusercontent.com/koXfW3JR_z4_3KihWWL0k-Xhdc8Ak6kSMFrQFz2FqTULKuiC5L0w_LTTA37LFWYcF98=w480-h960-rw",
+    description: "Experience the ultimate football management with **Football League 2025 MOD**! This enhanced version provides unlimited coins and gems, all legendary players unlocked, infinite transfer budget, premium stadium upgrades, and access to exclusive tournaments and formations.",
+    features: ["Unlimited Coins & Gems", "All Players Unlocked", "Infinite Transfer Budget", "Premium Stadiums", "Exclusive Tournaments"],
+    category: "Sports"
+  },
+  {
     name: "Umamusume: Pretty Derby",
     size: "3.2 GB",
     stars: "4.8",
