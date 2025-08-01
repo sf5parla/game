@@ -15,6 +15,50 @@ interface Game {
 
 const gamesData: Game[] = [
   {
+    name: "Friday Night Funkin'",
+    size: "156 MB",
+    stars: "4.6",
+    downloads: "5.2M",
+    reviews: "127.3K",
+    image: "https://lh3.googleusercontent.com/Y6Wpf8sFgH1X8DBmTHykOVcC-eE8-DcT46OaRJuLjyPcI_7GrrtKjzCB-miJwOCtaOnMGu1DHsgH990D7FzlrTzdKi1z-y2A1Co=rw",
+    description: "Get into the rhythm with **Friday Night Funkin' MOD**! This enhanced version provides unlimited energy and lives, all songs and characters unlocked, perfect accuracy mode, exclusive custom tracks, and access to premium skins and backgrounds for the ultimate musical battle experience.",
+    features: ["Unlimited Energy & Lives", "All Songs Unlocked", "Perfect Accuracy Mode", "Custom Tracks", "Premium Skins"],
+    category: "Music"
+  },
+  {
+    name: "Among Us",
+    size: "267 MB",
+    stars: "4.3",
+    downloads: "100M",
+    reviews: "2.1M",
+    image: "https://lh3.googleusercontent.com/eMjRPUYbaq-B6cHM-auLe3G4Bop6PFli1MgeKhVrAXsnTX0WjsPoAooJA4UV6M4jNU9koqUatuaoKuf1sbcTNttdOgOWL0077jYucg=rw",
+    description: "Master deception with **Among Us MOD**! This enhanced version offers unlimited coins and gems, all pets and skins unlocked, always impostor mode option, ghost mode features, and access to exclusive maps and customization options for the ultimate social deduction experience.",
+    features: ["Unlimited Coins & Gems", "All Skins & Pets Unlocked", "Always Impostor Mode", "Ghost Features", "Exclusive Maps"],
+    category: "Social"
+  },
+  {
+    name: "My Talking Tom Friends 2",
+    size: "423 MB",
+    stars: "4.4",
+    downloads: "10M",
+    reviews: "234.7K",
+    image: "https://lh3.googleusercontent.com/wrbniNeRZEFhJtOaAFcEnSYrJ60b2xlR4r0DrJq8ckwDyofN0dglEMiurNN3li8Xkw1nVhFkvEkiZl9d05uhiipNkE19_HsrKA=rw",
+    description: "Care for your virtual pets with **My Talking Tom Friends 2 MOD**! This version provides unlimited coins and diamonds, all outfits and furniture unlocked, instant mini-game rewards, premium food and toys, plus ad-free gameplay for endless fun with your talking friends.",
+    features: ["Unlimited Coins & Diamonds", "All Outfits Unlocked", "Instant Rewards", "Premium Items", "Ad-Free Experience"],
+    category: "Simulation"
+  },
+  {
+    name: "Survival Escape: Session 3",
+    size: "892 MB",
+    stars: "4.5",
+    downloads: "1.8M",
+    reviews: "67.4K",
+    image: "https://lh3.googleusercontent.com/ZLWK0N1Dj28Fft6aaMF8uDQB5991ClpDE5SzChMj17OFt0B3ata0PXoiYgdV1f-1cILN0c1sa7de9dNYhMSNVyot9YSSacRblrDn=rw",
+    description: "Survive the ultimate challenge with **Survival Escape: Session 3 MOD**! This enhanced version offers unlimited health and stamina, all weapons and tools unlocked, infinite resources and crafting materials, god mode protection, and access to exclusive survival scenarios and premium equipment.",
+    features: ["Unlimited Health & Stamina", "All Weapons Unlocked", "Infinite Resources", "God Mode", "Premium Equipment"],
+    category: "Action"
+  },
+  {
     name: "Football League 2025",
     size: "1.6 GB",
     stars: "4.8",
