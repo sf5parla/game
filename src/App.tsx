@@ -185,7 +185,7 @@ const gamesData: Game[] = [
     stars: "4.8",
     downloads: "2.1M",
     reviews: "89.4K",
-    image: "https://images.seeklogo.com/logo-png/21/1/elder-scrolls-v-skyrim-logo-png_seeklogo-213239.png",
+    image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTuMm5HPNw0vMJB8H58mue52m8tUu1-wkboEBLb7WTbL5nqATQS",
     description: "Conquer Tamriel with **The Elder Scrolls V: Skyrim Special Edition MOD**! This legendary version offers unlimited health, magicka, and stamina, all spells and shouts unlocked, infinite carry weight, god mode protection, and access to exclusive weapons, armor sets, and dragon abilities.",
     features: ["Unlimited Health & Magicka", "All Spells Unlocked", "Infinite Carry Weight", "God Mode", "Exclusive Equipment"],
     category: "RPG"
