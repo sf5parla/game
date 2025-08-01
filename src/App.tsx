@@ -167,6 +167,28 @@ const gamesData: Game[] = [
     description: "Create your dream world with **Toca Boca World x KATSEYE MOD**! This special collaboration edition offers unlimited coins and gems, all locations and characters unlocked, exclusive KATSEYE-themed content, premium outfits and accessories, plus ad-free creative gameplay for endless storytelling possibilities.",
     features: ["Unlimited Coins & Gems", "All Locations Unlocked", "KATSEYE Exclusive Content", "Premium Outfits", "Ad-Free Experience"],
     category: "Simulation"
+  },
+  {
+    name: "Stardew Valley",
+    size: "298 MB",
+    stars: "4.9",
+    downloads: "8.7M",
+    reviews: "156.2K",
+    image: "https://play-lh.googleusercontent.com/He92papZcOmkgTi1sLHXQQb02aoyRtJ8ml96njM_cSAcpHhILvxMjhLix4mYEIKXPq4=s96-rw",
+    description: "Experience the ultimate farming life with **Stardew Valley MOD**! This enhanced version provides unlimited money and energy, all crops and seeds unlocked, instant crop growth, unlimited inventory space, and access to exclusive farm layouts and premium decorations for the perfect valley experience.",
+    features: ["Unlimited Money & Energy", "All Crops Unlocked", "Instant Growth", "Unlimited Inventory", "Premium Decorations"],
+    category: "Simulation"
+  },
+  {
+    name: "The Elder Scrolls V: Skyrim Special Edition",
+    size: "4.8 GB",
+    stars: "4.8",
+    downloads: "2.1M",
+    reviews: "89.4K",
+    image: "https://images.seeklogo.com/logo-png/21/1/elder-scrolls-v-skyrim-logo-png_seeklogo-213239.png",
+    description: "Conquer Tamriel with **The Elder Scrolls V: Skyrim Special Edition MOD**! This legendary version offers unlimited health, magicka, and stamina, all spells and shouts unlocked, infinite carry weight, god mode protection, and access to exclusive weapons, armor sets, and dragon abilities.",
+    features: ["Unlimited Health & Magicka", "All Spells Unlocked", "Infinite Carry Weight", "God Mode", "Exclusive Equipment"],
+    category: "RPG"
   }
 ].sort((a, b) => a.name.localeCompare(b.name));
 
