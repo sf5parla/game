@@ -189,6 +189,17 @@ const gamesData: Game[] = [
     description: "Conquer Tamriel with **The Elder Scrolls V: Skyrim Special Edition MOD**! This legendary version offers unlimited health, magicka, and stamina, all spells and shouts unlocked, infinite carry weight, god mode protection, and access to exclusive weapons, armor sets, and dragon abilities.",
     features: ["Unlimited Health & Magicka", "All Spells Unlocked", "Infinite Carry Weight", "God Mode", "Exclusive Equipment"],
     category: "RPG"
+  },
+  {
+    name: "EA SPORTS FC™ 26",
+    size: "3.2 GB",
+    stars: "4.7",
+    downloads: "12.5M",
+    reviews: "287.6K",
+    image: "https://scontent.fcmn3-2.fna.fbcdn.net/v/t39.30808-6/489369245_122144504750488981_4811361709053988467_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=fsE-LIKDx-QQ7kNvwGAMqON&_nc_oc=Adkvo0ynygHzToxIFbRAFT-QCzfyV_7hBK3yf0Zf_-BD6VZxWr6mLdo4gXZvUlegUhQ&_nc_zt=23&_nc_ht=scontent.fcmn3-2.fna&_nc_gid=MFRUWB3WEHRGktTuiG6yfw&oh=00_AfW9fkpBHijxK_vkWn4z51Ou27lj9_VsDNEquD_lrIO2GQ&oe=68969883",
+    description: "Experience the ultimate football simulation with **EA SPORTS FC™ 26 MOD**! This enhanced version provides unlimited FIFA coins and points, all legendary players and teams unlocked, infinite career mode budget, premium Ultimate Team packs, and access to exclusive stadiums, kits, and celebration animations for the complete football experience.",
+    features: ["Unlimited Coins & Points", "All Players Unlocked", "Infinite Career Budget", "Premium Ultimate Team", "Exclusive Stadiums"],
+    category: "Sports"
   }
 ].sort((a, b) => a.name.localeCompare(b.name));
 
