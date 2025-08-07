@@ -201,6 +201,17 @@ const gamesData: Game[] = [
     features: ["Unlimited Coins & Points", "All Players Unlocked", "Infinite Career Budget", "Premium Ultimate Team", "Exclusive Stadiums"],
     category: "Sports"
   }
+  {
+    name: "BitLife - Life Simulator",
+    size: "187 MB",
+    stars: "4.5",
+    downloads: "50M",
+    reviews: "1.2M",
+    image: "https://play-lh.googleusercontent.com/fUM-UyywXxjC8soxAZdIlxJrlRRXmql8wkE426SHzft4lJycSKVd2jCYQQX1BEG9Xw=s96-rw",
+    description: "Live your best virtual life with **BitLife - Life Simulator MOD**! This enhanced version provides unlimited money and assets, all careers and achievements unlocked, god mode for perfect stats, unlimited respect and happiness, plus access to exclusive premium content and special scenarios for the ultimate life simulation experience.",
+    features: ["Unlimited Money & Assets", "All Careers Unlocked", "God Mode Stats", "Unlimited Respect", "Premium Content Access"],
+    category: "Simulation"
+  }
 ].sort((a, b) => a.name.localeCompare(b.name));
 
 // Professional platform icons
