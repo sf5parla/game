@@ -200,7 +200,7 @@ const gamesData: Game[] = [
     description: "Experience the ultimate football simulation with **EA SPORTS FC™ 26 MOD**! This enhanced version provides unlimited FIFA coins and points, all legendary players and teams unlocked, infinite career mode budget, premium Ultimate Team packs, and access to exclusive stadiums, kits, and celebration animations for the complete football experience.",
     features: ["Unlimited Coins & Points", "All Players Unlocked", "Infinite Career Budget", "Premium Ultimate Team", "Exclusive Stadiums"],
     category: "Sports"
-  }
+  },
   {
     name: "BitLife - Life Simulator",
     size: "187 MB",
