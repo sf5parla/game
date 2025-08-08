@@ -1,21 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Search, Menu, Users, Gamepad2, Download, Gift, Play, Box, MessageSquare, ArrowUp, X } from 'lucide-react';
-
-interface Game {
-  name: string;
-  size: string;
-  stars: string;
-  downloads: string;
-  reviews: string;
-  image: string;
-  description: string;
-  features: string[];
-  category: string;
-}
+import Breadcrumbs from './components/Breadcrumbs';
+import CategoryNav from './components/CategoryNav';
+import RelatedGames from './components/RelatedGames';
+import GameCard from './components/GameCard';
+import { Game, Category, BreadcrumbItem } from './types';
+import { generateGameSlug, generateCategorySlug, generateMetaDescription, generateAnchorText } from './utils/seo';
 
 const gamesData: Game[] = [
   {
+    id: "friday-night-funkin",
     name: "Friday Night Funkin'",
+    slug: "friday-night-funkin-mod-apk",
     size: "89 MB",
     stars: "4.6",
     downloads: "2.1M",
@@ -23,9 +19,14 @@ const gamesData: Game[] = [
     image: "https://lh3.googleusercontent.com/Y6Wpf8sFgH1X8DBmTHykOVcC-eE8-DcT46OaRJuLjyPcI_7GrrtKjzCB-miJwOCtaOnMGu1DHsgH990D7FzlrTzdKi1z-y2A1Co=rw",
     description: "Get into the rhythm with **Friday Night Funkin' MOD**! This enhanced version provides unlimited energy and lives, all songs and characters unlocked, perfect accuracy mode, exclusive custom tracks, and access to premium skins and backgrounds for the ultimate musical battle experience.",
     features: ["Unlimited Energy & Lives", "All Songs Unlocked", "Perfect Accuracy Mode", "Custom Tracks", "Premium Skins"],
-    category: "Music"
+    category: "Music",
+    tags: ["rhythm", "music", "arcade", "indie"],
+    releaseDate: "2024-01-15",
+    developer: "ninjamuffin99"
   },
   {
+    id: "among-us",
+    slug: "among-us-mod-apk",
     name: "Among Us",
     size: "124 MB",
     stars: "4.3",
@@ -34,9 +35,14 @@ const gamesData: Game[] = [
     image: "https://lh3.googleusercontent.com/eMjRPUYbaq-B6cHM-auLe3G4Bop6PFli1MgeKhVrAXsnTX0WjsPoAooJA4UV6M4jNU9koqUatuaoKuf1sbcTNttdOgOWL0077jYucg=rw",
     description: "Master deception with **Among Us MOD**! This enhanced version offers unlimited coins and gems, all pets and skins unlocked, always impostor mode option, ghost mode features, and access to exclusive maps and customization options for the ultimate social deduction experience.",
     features: ["Unlimited Coins & Gems", "All Skins & Pets Unlocked", "Always Impostor Mode", "Ghost Features", "Exclusive Maps"],
-    category: "Social"
+    category: "Social",
+    tags: ["multiplayer", "social", "deduction", "party"],
+    releaseDate: "2024-01-10",
+    developer: "InnerSloth"
   },
   {
+    id: "my-talking-tom-friends-2",
+    slug: "my-talking-tom-friends-2-mod-apk",
     name: "My Talking Tom Friends 2",
     size: "187 MB",
     stars: "4.4",
@@ -45,9 +51,14 @@ const gamesData: Game[] = [
     image: "https://lh3.googleusercontent.com/wrbniNeRZEFhJtOaAFcEnSYrJ60b2xlR4r0DrJq8ckwDyofN0dglEMiurNN3li8Xkw1nVhFkvEkiZl9d05uhiipNkE19_HsrKA=rw",
     description: "Care for your virtual pets with **My Talking Tom Friends 2 MOD**! This version provides unlimited coins and diamonds, all outfits and furniture unlocked, instant mini-game rewards, premium food and toys, plus ad-free gameplay for endless fun with your talking friends.",
     features: ["Unlimited Coins & Diamonds", "All Outfits Unlocked", "Instant Rewards", "Premium Items", "Ad-Free Experience"],
-    category: "Simulation"
+    category: "Simulation",
+    tags: ["pets", "virtual", "kids", "casual"],
+    releaseDate: "2024-01-08",
+    developer: "Outfit7 Limited"
   },
   {
+    id: "survival-escape-session-3",
+    slug: "survival-escape-session-3-mod-apk",
     name: "Survival Escape: Session 3",
     size: "312 MB",
     stars: "4.5",
@@ -56,9 +67,14 @@ const gamesData: Game[] = [
     image: "https://lh3.googleusercontent.com/ZLWK0N1Dj28Fft6aaMF8uDQB5991ClpDE5SzChMj17OFt0B3ata0PXoiYgdV1f-1cILN0c1sa7de9dNYhMSNVyot9YSSacRblrDn=rw",
     description: "Survive the ultimate challenge with **Survival Escape: Session 3 MOD**! This enhanced version offers unlimited health and stamina, all weapons and tools unlocked, infinite resources and crafting materials, god mode protection, and access to exclusive survival scenarios and premium equipment.",
     features: ["Unlimited Health & Stamina", "All Weapons Unlocked", "Infinite Resources", "God Mode", "Premium Equipment"],
-    category: "Action"
+    category: "Action",
+    tags: ["survival", "adventure", "crafting", "horror"],
+    releaseDate: "2024-01-05",
+    developer: "HFG Entertainments"
   },
   {
+    id: "football-league-2025",
+    slug: "football-league-2025-mod-apk",
     name: "Football League 2025",
     size: "456 MB",
     stars: "4.8",
@@ -67,9 +83,14 @@ const gamesData: Game[] = [
     image: "https://play-lh.googleusercontent.com/koXfW3JR_z4_3KihWWL0k-Xhdc8Ak6kSMFrQFz2FqTULKuiC5L0w_LTTA37LFWYcF98=w480-h960-rw",
     description: "Experience the ultimate football management with **Football League 2025 MOD**! This enhanced version provides unlimited coins and gems, all legendary players unlocked, infinite transfer budget, premium stadium upgrades, and access to exclusive tournaments and formations.",
     features: ["Unlimited Coins & Gems", "All Players Unlocked", "Infinite Transfer Budget", "Premium Stadiums", "Exclusive Tournaments"],
-    category: "Sports"
+    category: "Sports",
+    tags: ["football", "soccer", "management", "strategy"],
+    releaseDate: "2024-01-20",
+    developer: "Mobile Soccer League"
   },
   {
+    id: "umamusume-pretty-derby",
+    slug: "umamusume-pretty-derby-mod-apk",
     name: "Umamusume: Pretty Derby",
     size: "1.1 GB",
     stars: "4.8",
@@ -78,9 +99,14 @@ const gamesData: Game[] = [
     image: "https://lh3.googleusercontent.com/FzbRkH5mH1KS1LyJDticeZ1C_yfgJ3OchPS9hwHJfn99AegQvXbDGQElvhC5BZ3bcDHBDrzlwBeCG_elEVGvs-Y2O0iDBcHb8_2D=rw",
     description: "Experience the ultimate horse racing adventure with **Umamusume: Pretty Derby MOD**! This enhanced version provides unlimited jewels and coins, all Uma Musume characters unlocked, infinite training points, and access to exclusive storylines and premium outfits.",
     features: ["Unlimited Jewels & Coins", "All Characters Unlocked", "Infinite Training Points", "Premium Outfits", "Exclusive Storylines"],
-    category: "Simulation"
+    category: "Simulation",
+    tags: ["racing", "anime", "training", "collection"],
+    releaseDate: "2024-01-12",
+    developer: "Cygames"
   },
   {
+    id: "dc-worlds-collide",
+    slug: "dc-worlds-collide-mod-apk",
     name: "DC Worlds Collide",
     size: "623 MB",
     stars: "4.6",
@@ -89,9 +115,14 @@ const gamesData: Game[] = [
     image: "https://lh3.googleusercontent.com/GBNvAn1KvnRcym8qD2JtPewl1jqsJ95ljoBSydSUOpHA6qVVXv428WOaoXnGphhWSiw3uydNGqUS-nrtZjWM3VwuCHc8K0RX8WQA=rw",
     description: "Unite DC's greatest heroes with **DC Worlds Collide MOD**! This enhanced version offers unlimited energy and resources, all legendary heroes unlocked, infinite upgrade materials, and access to exclusive multiverse storylines with premium costumes.",
     features: ["Unlimited Energy & Resources", "All Heroes Unlocked", "Infinite Upgrades", "Premium Costumes", "Multiverse Storylines"],
-    category: "Action"
+    category: "Action",
+    tags: ["superhero", "dc", "rpg", "collection"],
+    releaseDate: "2024-01-18",
+    developer: "Warner Bros Games"
   },
   {
+    id: "persona-5-phantom-x",
+    slug: "persona-5-phantom-x-mod-apk",
     name: "Persona 5: The Phantom X",
     size: "1.4 GB",
     stars: "4.9",
@@ -100,9 +131,14 @@ const gamesData: Game[] = [
     image: "https://lh3.googleusercontent.com/uQUmeBB7fFKXuxaRqzwGhtID5_lmvOy3YJcGmHYUoH8Y41yQKEAqqSLRNPMUau5vybLF8D5NUkxMh3d5bZxCi9SsZOlxerVhE8ii=rw",
     description: "Steal hearts in style with **Persona 5: The Phantom X MOD**! This enhanced version provides unlimited SP and money, all Personas unlocked, infinite confidant points, and access to exclusive Phantom Thieves content with premium outfits and storylines.",
     features: ["Unlimited SP & Money", "All Personas Unlocked", "Infinite Confidant Points", "Premium Outfits", "Exclusive Content"],
-    category: "RPG"
+    category: "RPG",
+    tags: ["jrpg", "anime", "turn-based", "story"],
+    releaseDate: "2024-01-25",
+    developer: "Perfect World Games"
   },
   {
+    id: "marvel-mystic-mayhem",
+    slug: "marvel-mystic-mayhem-mod-apk",
     name: "MARVEL Mystic Mayhem",
     size: "198 MB",
     stars: "4.7",
@@ -111,9 +147,14 @@ const gamesData: Game[] = [
     image: "https://images.appmagic.rocks/?uri=https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ff/a5/03/ffa503a7-43c0-3625-7e8a-c8181e670128/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/0x196h.jpg",
     description: "Unleash superhero power with **MARVEL Mystic Mayhem MOD**! This version offers unlimited energy and resources, all heroes unlocked from the start, infinite upgrade materials, and access to exclusive Marvel storylines and premium costumes.",
     features: ["Unlimited Energy & Resources", "All Heroes Unlocked", "Infinite Upgrades", "Premium Costumes", "Exclusive Storylines"],
-    category: "Action"
+    category: "Action",
+    tags: ["superhero", "marvel", "rpg", "collection"],
+    releaseDate: "2024-01-14",
+    developer: "Marvel Entertainment"
   },
   {
+    id: "my-perfect-hotel",
+    slug: "my-perfect-hotel-mod-apk",
     name: "My Perfect Hotel",
     size: "127 MB",
     stars: "4.5",
@@ -122,9 +163,14 @@ const gamesData: Game[] = [
     image: "https://play-lh.googleusercontent.com/8P748vOHE4mCetsk2_Ss34HxSJoHtlnIxFLB3pFRawM3MR9VLDceIxbNQBdLBnM6mkMR=w480-h960-rw",
     description: "Build your hotel empire with **My Perfect Hotel MOD**! Get unlimited money and gems to expand rapidly, unlock all premium decorations and furniture, remove all ads for uninterrupted gameplay, and access exclusive VIP floors and amenities.",
     features: ["Unlimited Money & Gems", "All Decorations Unlocked", "VIP Floors Access", "Ad-Free Gaming", "Instant Upgrades"],
-    category: "Simulation"
+    category: "Simulation",
+    tags: ["management", "hotel", "business", "casual"],
+    releaseDate: "2024-01-06",
+    developer: "Playgendary"
   },
   {
+    id: "royal-kingdom",
+    slug: "royal-kingdom-mod-apk",
     name: "Royal Kingdom",
     size: "234 MB",
     stars: "4.6",
@@ -133,9 +179,14 @@ const gamesData: Game[] = [
     image: "https://lh3.googleusercontent.com/Mn69XcPxG19NMu5VxhXMGSpOrxtkz65j6Lbp0aZX3D-4Duzf_fJFUjRlCfNzj_Qk8VwLogcGKQ9JPbX4nJ5ahixNlFO1O9hSOWys=rw",
     description: "Build your medieval empire with **Royal Kingdom MOD**! This enhanced version provides unlimited gold and gems, all buildings and decorations unlocked, instant construction and upgrades, plus access to exclusive royal content and premium castle designs.",
     features: ["Unlimited Gold & Gems", "All Buildings Unlocked", "Instant Construction", "Premium Designs", "Royal Content"],
-    category: "Strategy"
+    category: "Strategy",
+    tags: ["medieval", "kingdom", "building", "management"],
+    releaseDate: "2024-01-09",
+    developer: "Royal Games Studio"
   },
   {
+    id: "whiteout-survival",
+    slug: "whiteout-survival-mod-apk",
     name: "Whiteout Survival",
     size: "387 MB",
     stars: "4.4",
@@ -144,9 +195,14 @@ const gamesData: Game[] = [
     image: "https://play-lh.googleusercontent.com/gtcDOls1xCaV_qtRKx3dsk75bNBqel81gWkhK2xvgq5KKHj_71lnZjXYO6He97w0j-U=w480-h960-rw",
     description: "Survive the apocalypse with **Whiteout Survival MOD**! Command unlimited resources, instant building and research completion, invincible troops and heroes, plus access to premium alliance features. Lead humanity through the frozen wasteland with overwhelming power.",
     features: ["Unlimited Resources", "Instant Building", "Invincible Units", "Premium Alliances", "God Mode"],
-    category: "Strategy"
+    category: "Strategy",
+    tags: ["survival", "strategy", "post-apocalyptic", "multiplayer"],
+    releaseDate: "2024-01-11",
+    developer: "Century Games"
   },
   {
+    id: "squad-busters",
+    slug: "squad-busters-mod-apk",
     name: "Squad Busters",
     size: "267 MB",
     stars: "4.5",
@@ -155,9 +211,14 @@ const gamesData: Game[] = [
     image: "https://images.appmagic.rocks/?uri=https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d4/11/a5/d411a566-a7ba-ab83-6623-ea9b140dfba0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/0x196h.jpg",
     description: "Unite your favorite Supercell characters with **Squad Busters MOD**! This enhanced version provides unlimited gems and coins, all characters unlocked from the start, instant upgrades, and access to exclusive battle modes. Build the ultimate squad with heroes from Clash of Clans, Clash Royale, Boom Beach, and more!",
     features: ["Unlimited Gems & Coins", "All Characters Unlocked", "Instant Upgrades", "Exclusive Battle Modes", "Premium Squad Combinations"],
-    category: "Strategy"
+    category: "Strategy",
+    tags: ["supercell", "strategy", "collection", "multiplayer"],
+    releaseDate: "2024-01-22",
+    developer: "Supercell"
   },
   {
+    id: "toca-boca-world-katseye",
+    slug: "toca-boca-world-katseye-mod-apk",
     name: "Toca Boca World x KATSEYE",
     size: "445 MB",
     stars: "4.7",
@@ -166,9 +227,14 @@ const gamesData: Game[] = [
     image: "https://play-lh.googleusercontent.com/QZisp4H3LZ-Xc5ob7W1etIGWa2f_ncdQuCVghOXGjjNpTdL4nwwFci1msOKACqZMmQsp=s96-rw",
     description: "Create your dream world with **Toca Boca World x KATSEYE MOD**! This special collaboration edition offers unlimited coins and gems, all locations and characters unlocked, exclusive KATSEYE-themed content, premium outfits and accessories, plus ad-free creative gameplay for endless storytelling possibilities.",
     features: ["Unlimited Coins & Gems", "All Locations Unlocked", "KATSEYE Exclusive Content", "Premium Outfits", "Ad-Free Experience"],
-    category: "Simulation"
+    category: "Simulation",
+    tags: ["creative", "kids", "collaboration", "sandbox"],
+    releaseDate: "2024-01-16",
+    developer: "Toca Boca"
   },
   {
+    id: "stardew-valley",
+    slug: "stardew-valley-mod-apk",
     name: "Stardew Valley",
     size: "156 MB",
     stars: "4.9",
@@ -177,9 +243,14 @@ const gamesData: Game[] = [
     image: "https://play-lh.googleusercontent.com/He92papZcOmkgTi1sLHXQQb02aoyRtJ8ml96njM_cSAcpHhILvxMjhLix4mYEIKXPq4=s96-rw",
     description: "Experience the ultimate farming life with **Stardew Valley MOD**! This enhanced version provides unlimited money and energy, all crops and seeds unlocked, instant crop growth, unlimited inventory space, and access to exclusive farm layouts and premium decorations for the perfect valley experience.",
     features: ["Unlimited Money & Energy", "All Crops Unlocked", "Instant Growth", "Unlimited Inventory", "Premium Decorations"],
-    category: "Simulation"
+    category: "Simulation",
+    tags: ["farming", "indie", "relaxing", "rpg"],
+    releaseDate: "2024-01-03",
+    developer: "ConcernedApe"
   },
   {
+    id: "skyrim-special-edition",
+    slug: "skyrim-special-edition-mod-apk",
     name: "The Elder Scrolls V: Skyrim Special Edition",
     size: "2.1 GB",
     stars: "4.8",
@@ -188,9 +259,14 @@ const gamesData: Game[] = [
     image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTuMm5HPNw0vMJB8H58mue52m8tUu1-wkboEBLb7WTbL5nqATQS",
     description: "Conquer Tamriel with **The Elder Scrolls V: Skyrim Special Edition MOD**! This legendary version offers unlimited health, magicka, and stamina, all spells and shouts unlocked, infinite carry weight, god mode protection, and access to exclusive weapons, armor sets, and dragon abilities.",
     features: ["Unlimited Health & Magicka", "All Spells Unlocked", "Infinite Carry Weight", "God Mode", "Exclusive Equipment"],
-    category: "RPG"
+    category: "RPG",
+    tags: ["fantasy", "open-world", "adventure", "bethesda"],
+    releaseDate: "2024-01-01",
+    developer: "Bethesda Game Studios"
   },
   {
+    id: "ea-sports-fc-26",
+    slug: "ea-sports-fc-26-mod-apk",
     name: "EA SPORTS FC™ 26",
     size: "1.8 GB",
     stars: "4.7",
@@ -199,9 +275,14 @@ const gamesData: Game[] = [
     image: "https://scontent.fcmn3-2.fna.fbcdn.net/v/t39.30808-6/489369245_122144504750488981_4811361709053988467_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=fsE-LIKDx-QQ7kNvwGAMqON&_nc_oc=Adkvo0ynygHzToxIFbRAFT-QCzfyV_7hBK3yf0Zf_-BD6VZxWr6mLdo4gXZvUlegUhQ&_nc_zt=23&_nc_ht=scontent.fcmn3-2.fna&_nc_gid=MFRUWB3WEHRGktTuiG6yfw&oh=00_AfW9fkpBHijxK_vkWn4z51Ou27lj9_VsDNEquD_lrIO2GQ&oe=68969883",
     description: "Experience the ultimate football simulation with **EA SPORTS FC™ 26 MOD**! This enhanced version provides unlimited FIFA coins and points, all legendary players and teams unlocked, infinite career mode budget, premium Ultimate Team packs, and access to exclusive stadiums, kits, and celebration animations for the complete football experience.",
     features: ["Unlimited Coins & Points", "All Players Unlocked", "Infinite Career Budget", "Premium Ultimate Team", "Exclusive Stadiums"],
-    category: "Sports"
+    category: "Sports",
+    tags: ["football", "fifa", "ea-sports", "simulation"],
+    releaseDate: "2024-01-28",
+    developer: "EA Sports"
   },
   {
+    id: "bitlife-life-simulator",
+    slug: "bitlife-life-simulator-mod-apk",
     name: "BitLife - Life Simulator",
     size: "98 MB",
     stars: "4.5",
@@ -210,29 +291,52 @@ const gamesData: Game[] = [
     image: "https://play-lh.googleusercontent.com/fUM-UyywXxjC8soxAZdIlxJrlRRXmql8wkE426SHzft4lJycSKVd2jCYQQX1BEG9Xw=s96-rw",
     description: "Live your best virtual life with **BitLife - Life Simulator MOD**! This enhanced version provides unlimited money and assets, all careers and achievements unlocked, god mode for perfect stats, unlimited respect and happiness, plus access to exclusive premium content and special scenarios for the ultimate life simulation experience.",
     features: ["Unlimited Money & Assets", "All Careers Unlocked", "God Mode Stats", "Unlimited Respect", "Premium Content Access"],
-    category: "Simulation"
+    category: "Simulation",
+    tags: ["life", "simulation", "text-based", "choices"],
+    releaseDate: "2024-01-04",
+    developer: "Candywriter"
   }
 ].sort((a, b) => a.name.localeCompare(b.name));
 
-// Professional platform icons
-const AndroidIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M6.78 1.39c-.24-.24-.24-.62 0-.86.24-.24.62-.24.86 0l1.27 1.27c.4-.2.84-.3 1.29-.3s.89.1 1.29.3L12.76.53c.24-.24.62-.24.86 0 .24.24.24.62 0 .86L12.35 2.66c1.92.8 3.28 2.65 3.28 4.84v.5H8.37v-.5c0-2.19 1.36-4.04 3.28-4.84L10.38 1.39zM9.5 5.5c-.28 0-.5-.22-.5-.5s.22-.5.5-.5.5.22.5.5-.22.5-.5.5zm5 0c-.28 0-.5-.22-.5-.5s.22-.5.5-.5.5.22.5.5-.22.5-.5.5zM7.5 9v8c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V18h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V18h1c.55 0 1-.45 1-1V9H7.5zM5.5 9c-.83 0-1.5.67-1.5 1.5v5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-5C7 9.67 6.33 9 5.5 9zm13 0c-.83 0-1.5.67-1.5 1.5v5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-5c0-.83-.67-1.5-1.5-1.5z"/>
-  </svg>
-);
-
-const AppleIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-  </svg>
-);
+const categories: Category[] = [
+  { id: "action", name: "Action", slug: "action-games", description: "High-octane action games with unlimited features", gameCount: gamesData.filter(g => g.category === "Action").length },
+  { id: "rpg", name: "RPG", slug: "rpg-games", description: "Role-playing games with unlimited resources", gameCount: gamesData.filter(g => g.category === "RPG").length },
+  { id: "simulation", name: "Simulation", slug: "simulation-games", description: "Life and management simulation games", gameCount: gamesData.filter(g => g.category === "Simulation").length },
+  { id: "sports", name: "Sports", slug: "sports-games", description: "Sports games with unlimited coins and features", gameCount: gamesData.filter(g => g.category === "Sports").length },
+  { id: "strategy", name: "Strategy", slug: "strategy-games", description: "Strategic games with unlimited resources", gameCount: gamesData.filter(g => g.category === "Strategy").length },
+  { id: "music", name: "Music", slug: "music-games", description: "Rhythm and music games", gameCount: gamesData.filter(g => g.category === "Music").length },
+  { id: "social", name: "Social", slug: "social-games", description: "Social and party games", gameCount: gamesData.filter(g => g.category === "Social").length }
+];
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedGame, setSelectedGame] = useState<Game | null>(null);
   const [filteredGames, setFilteredGames] = useState<Game[]>(gamesData);
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [toasts, setToasts] = useState<Array<{id: number, message: string, type: string}>>([]);
+
+  // Generate breadcrumbs based on current state
+  const getBreadcrumbs = (): BreadcrumbItem[] => {
+    const breadcrumbs: BreadcrumbItem[] = [];
+    
+    if (activeCategory) {
+      const category = categories.find(c => c.slug === activeCategory);
+      if (category) {
+        breadcrumbs.push({ label: category.name, href: `/category/${category.slug}` });
+      }
+    }
+    
+    if (selectedGame) {
+      breadcrumbs.push({ 
+        label: selectedGame.name, 
+        href: `/game/${selectedGame.slug}`, 
+        current: true 
+      });
+    }
+    
+    return breadcrumbs;
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -244,16 +348,32 @@ function App() {
 
   useEffect(() => {
     if (searchTerm.trim() === '') {
-      setFilteredGames(gamesData);
+      const categoryFiltered = activeCategory 
+        ? gamesData.filter(game => generateCategorySlug(game.category) === activeCategory)
+        : gamesData;
+      setFilteredGames(categoryFiltered);
     } else {
-      const filtered = gamesData.filter(game =>
+      let baseGames = activeCategory 
+        ? gamesData.filter(game => generateCategorySlug(game.category) === activeCategory)
+        : gamesData;
+      
+      const filtered = baseGames.filter(game =>
         game.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         game.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        game.category.toLowerCase().includes(searchTerm.toLowerCase())
+        game.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
       );
       setFilteredGames(filtered);
     }
-  }, [searchTerm]);
+  }, [searchTerm, activeCategory]);
+
+  const handleCategorySelect = (categorySlug: string | null) => {
+    setActiveCategory(categorySlug);
+    setSearchTerm(''); // Clear search when changing category
+  };
+
+  const handleGameSelect = (game: Game) => {
+    setSelectedGame(game);
+  };
 
   const showToast = (message: string, type: string = 'info') => {
     const id = Date.now();
@@ -265,10 +385,6 @@ function App() {
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const openGameDetails = (game: Game) => {
-    setSelectedGame(game);
   };
 
   const closeGameDetails = () => {
@@ -283,6 +399,11 @@ function App() {
       showToast('Content locker loading...', 'info');
     }
   };
+
+  const currentBreadcrumbs = getBreadcrumbs();
+  const relatedGames = selectedGame 
+    ? gamesData.filter(g => g.category === selectedGame.category && g.id !== selectedGame.id)
+    : [];
 
   return (
     <div className="min-h-screen bg-cover bg-center bg-fixed" style={{
@@ -313,6 +434,11 @@ function App() {
         </nav>
 
         <div className="pt-20 px-4 max-w-6xl mx-auto">
+          {/* Breadcrumbs */}
+          {currentBreadcrumbs.length > 0 && (
+            <Breadcrumbs items={currentBreadcrumbs} />
+          )}
+
           {/* Search */}
           <div className="relative my-8 z-10">
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 z-10" size={20} />
@@ -325,57 +451,55 @@ function App() {
             />
           </div>
 
+          {/* Category Navigation */}
+          <CategoryNav 
+            categories={categories}
+            activeCategory={activeCategory}
+            onCategorySelect={handleCategorySelect}
+          />
+
           {/* Title */}
           <div className="flex items-center mb-6">
             <div className="w-10 h-10 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg shadow-amber-400/40">
               <Gamepad2 className="text-slate-800" size={24} />
             </div>
-            <h1 className="text-white text-2xl font-bold ml-4">Top MOD Games</h1>
+            <h1 className="text-white text-2xl font-bold ml-4">
+              {activeCategory 
+                ? `${categories.find(c => c.slug === activeCategory)?.name} MOD Games` 
+                : 'Top MOD Games'
+              }
+            </h1>
           </div>
 
           {/* Games Grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-12">
             {filteredGames.length === 0 ? (
               <div className="col-span-full text-center text-gray-300 py-16">
-                <p className="text-xl">No games found matching your search.</p>
+                <p className="text-xl">
+                  {searchTerm 
+                    ? `No games found matching "${searchTerm}".` 
+                    : 'No games found in this category.'
+                  }
+                </p>
+                {(searchTerm || activeCategory) && (
+                  <button 
+                    onClick={() => {
+                      setSearchTerm('');
+                      setActiveCategory(null);
+                    }}
+                    className="mt-4 text-blue-400 hover:text-amber-400 transition-colors"
+                  >
+                    View all games
+                  </button>
+                )}
               </div>
             ) : (
               filteredGames.map((game, index) => (
-                <div
+                <GameCard
                   key={index}
-                  onClick={() => openGameDetails(game)}
-                  className="bg-gradient-to-br from-slate-700 to-slate-800 rounded-2xl p-5 text-center shadow-lg hover:shadow-xl hover:transform hover:-translate-y-2 hover:scale-105 transition-all duration-300 cursor-pointer group border border-slate-600"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <div className="relative mb-4">
-                    <img
-                      src={game.image}
-                      alt={`${game.name} icon`}
-                      className="w-32 h-32 mx-auto rounded-2xl border-3 border-slate-600 object-cover"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.src = 'https://placehold.co/130x130/273D52/ffffff?text=Game+Icon';
-                      }}
-                    />
-                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-amber-400 to-orange-500 text-slate-800 font-bold rounded-2xl px-3 py-1 text-sm border-4 border-slate-700 shadow-md">
-                      MOD
-                    </div>
-                  </div>
-                  <h3 className="text-white font-bold text-lg mb-2 truncate group-hover:text-amber-400 transition-colors">
-                    {game.name}
-                  </h3>
-                  <div className="flex items-center justify-center text-sm text-blue-300 space-x-2">
-                    <div className="flex items-center space-x-1">
-                      <AndroidIcon />
-                      <AppleIcon />
-                    </div>
-                    <div className="w-0.5 h-4 bg-blue-500 rounded"></div>
-                    <div className="flex items-center space-x-1">
-                      <Download size={16} />
-                      <span>{game.downloads}+</span>
-                    </div>
-                  </div>
-                </div>
+                  game={game}
+                  onGameSelect={handleGameSelect}
+                />
               ))
             )}
           </div>
@@ -438,6 +562,19 @@ function App() {
                    }} 
               />
 
+              {/* Game Features */}
+              <div className="mb-6">
+                <h4 className="text-amber-400 font-semibold mb-3">MOD Features:</h4>
+                <div className="grid grid-cols-1 gap-2">
+                  {selectedGame.features.map((feature, index) => (
+                    <div key={index} className="flex items-center text-sm text-gray-300">
+                      <div className="w-2 h-2 bg-green-400 rounded-full mr-3"></div>
+                      {feature}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
               <div className="grid grid-cols-3 gap-4 mb-6 text-sm">
                 <div className="flex flex-col items-center">
                   <Box className="text-blue-400 mb-2" size={24} />
@@ -460,6 +597,15 @@ function App() {
                 <Download size={20} />
                 <span>Download MOD</span>
               </button>
+
+              {/* Related Games */}
+              {relatedGames.length > 0 && (
+                <RelatedGames 
+                  games={relatedGames}
+                  currentGameId={selectedGame.id}
+                  onGameSelect={handleGameSelect}
+                />
+              )}
             </div>
           </div>
         )}
@@ -493,6 +639,24 @@ function App() {
         {/* Footer */}
         <footer className="bg-gradient-to-r from-slate-800 to-slate-700 text-gray-300 py-6 px-4 text-center mt-12 shadow-lg border-t border-slate-600">
           <p className="mb-2">© 2024 Free MOD Games. All rights reserved.</p>
+          
+          {/* Footer Links - Internal Linking */}
+          <div className="mb-4">
+            <nav aria-label="Footer categories">
+              <div className="flex flex-wrap justify-center gap-4 text-sm mb-4">
+                {categories.map((category) => (
+                  <button
+                    key={category.id}
+                    onClick={() => handleCategorySelect(category.slug)}
+                    className="text-blue-400 hover:text-amber-400 transition-colors"
+                  >
+                    {generateAnchorText({ name: category.name, category: category.name } as Game, 'category')}
+                  </button>
+                ))}
+              </div>
+            </nav>
+          </div>
+          
           <div className="flex justify-center space-x-4 text-sm">
             <a href="#" className="text-blue-400 hover:text-amber-400 transition-colors">Privacy Policy</a>
             <span>|</span>
