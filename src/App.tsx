@@ -15,6 +15,17 @@ interface Game {
 
 const gamesData: Game[] = [
   {
+    name: "Toca Boca World",
+    size: "445 MB",
+    stars: "4.7",
+    downloads: "1.6M",
+    reviews: "78.3K",
+    image: "https://play-lh.googleusercontent.com/e4DEzMRm-iEOj_RbLEk6Pjhkd2WFAo1zGN72TNTXRmKrKG8GjN56s7T-O4XBTGJoPw=s96-rw",
+    description: "Create your dream world with **Toca Boca World MOD**! This enhanced version offers unlimited coins and gems, all locations and characters unlocked, exclusive themed content, premium outfits and accessories, plus ad-free creative gameplay for endless storytelling possibilities.",
+    features: ["Unlimited Coins & Gems", "All Locations Unlocked", "Exclusive Content", "Premium Outfits", "Ad-Free Experience"],
+    category: "Simulation"
+  },
+  {
     name: "Friday Night Funkin'",
     size: "89 MB",
     stars: "4.6",
@@ -158,17 +169,6 @@ const gamesData: Game[] = [
     category: "Strategy"
   },
   {
-    name: "Toca Boca World x KATSEYE",
-    size: "445 MB",
-    stars: "4.7",
-    downloads: "1.6M",
-    reviews: "78.3K",
-    image: "https://play-lh.googleusercontent.com/QZisp4H3LZ-Xc5ob7W1etIGWa2f_ncdQuCVghOXGjjNpTdL4nwwFci1msOKACqZMmQsp=s96-rw",
-    description: "Create your dream world with **Toca Boca World x KATSEYE MOD**! This special collaboration edition offers unlimited coins and gems, all locations and characters unlocked, exclusive KATSEYE-themed content, premium outfits and accessories, plus ad-free creative gameplay for endless storytelling possibilities.",
-    features: ["Unlimited Coins & Gems", "All Locations Unlocked", "KATSEYE Exclusive Content", "Premium Outfits", "Ad-Free Experience"],
-    category: "Simulation"
-  },
-  {
     name: "Stardew Valley",
     size: "156 MB",
     stars: "4.9",
@@ -191,13 +191,13 @@ const gamesData: Game[] = [
     category: "RPG"
   },
   {
-    name: "EA SPORTS FC™ 26",
+    name: "EA SPORTS FC™ 25",
     size: "1.8 GB",
     stars: "4.7",
     downloads: "4.2M",
     reviews: "287.6K",
-    image: "https://scontent.fcmn3-2.fna.fbcdn.net/v/t39.30808-6/489369245_122144504750488981_4811361709053988467_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=fsE-LIKDx-QQ7kNvwGAMqON&_nc_oc=Adkvo0ynygHzToxIFbRAFT-QCzfyV_7hBK3yf0Zf_-BD6VZxWr6mLdo4gXZvUlegUhQ&_nc_zt=23&_nc_ht=scontent.fcmn3-2.fna&_nc_gid=MFRUWB3WEHRGktTuiG6yfw&oh=00_AfW9fkpBHijxK_vkWn4z51Ou27lj9_VsDNEquD_lrIO2GQ&oe=68969883",
-    description: "Experience the ultimate football simulation with **EA SPORTS FC™ 26 MOD**! This enhanced version provides unlimited FIFA coins and points, all legendary players and teams unlocked, infinite career mode budget, premium Ultimate Team packs, and access to exclusive stadiums, kits, and celebration animations for the complete football experience.",
+    image: "https://play-lh.googleusercontent.com/DMNc2pPrBIAyEEiGM8EbZUJKKf8n_-Ej_1Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8=s96-rw",
+    description: "Experience the ultimate football simulation with **EA SPORTS FC™ 25 MOD**! This enhanced version provides unlimited FIFA coins and points, all legendary players and teams unlocked, infinite career mode budget, premium Ultimate Team packs, and access to exclusive stadiums, kits, and celebration animations for the complete football experience.",
     features: ["Unlimited Coins & Points", "All Players Unlocked", "Infinite Career Budget", "Premium Ultimate Team", "Exclusive Stadiums"],
     category: "Sports"
   },
