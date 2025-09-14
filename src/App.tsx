@@ -201,6 +201,7 @@ const gamesData: Game[] = [
     features: ["Unlimited Money & Assets", "All Careers Unlocked", "God Mode Stats", "Unlimited Respect", "Premium Content Access"],
     category: "Simulation"
   }
+];
 
 // Professional platform icons
 const AndroidIcon = () => (
