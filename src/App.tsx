@@ -191,17 +191,6 @@ const gamesData: Game[] = [
     category: "RPG"
   },
   {
-    name: "EA SPORTS FC™ 25",
-    size: "1.8 GB",
-    stars: "4.7",
-    downloads: "4.2M",
-    reviews: "287.6K",
-    image: "https://play-lh.googleusercontent.com/DMNc2pPrBIAyEEiGM8EbZUJKKf8n_-Ej_1Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8=s96-rw",
-    description: "Experience the ultimate football simulation with **EA SPORTS FC™ 25 MOD**! This enhanced version provides unlimited FIFA coins and points, all legendary players and teams unlocked, infinite career mode budget, premium Ultimate Team packs, and access to exclusive stadiums, kits, and celebration animations for the complete football experience.",
-    features: ["Unlimited Coins & Points", "All Players Unlocked", "Infinite Career Budget", "Premium Ultimate Team", "Exclusive Stadiums"],
-    category: "Sports"
-  },
-  {
     name: "BitLife - Life Simulator",
     size: "98 MB",
     stars: "4.5",
@@ -212,7 +201,6 @@ const gamesData: Game[] = [
     features: ["Unlimited Money & Assets", "All Careers Unlocked", "God Mode Stats", "Unlimited Respect", "Premium Content Access"],
     category: "Simulation"
   }
-].sort((a, b) => a.name.localeCompare(b.name));
 
 // Professional platform icons
 const AndroidIcon = () => (
